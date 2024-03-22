@@ -1,0 +1,179 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Laboratorio_Control_Automatico>
+	<Configuracion>
+		<Dispositivo>COM8</Dispositivo>
+		<Velocidad>115200</Velocidad>
+		<Tiempo_Muestreo>20</Tiempo_Muestreo>
+		<Numero_Muestras>1000</Numero_Muestras>
+	</Configuracion>
+	<Linea>
+		<Nombre>Linea_9</Nombre>
+		<Bloque_Inicio>SCOPE_2</Bloque_Inicio>
+		<Bloque_Fin>RE_0</Bloque_Fin>
+		<Nodos>[218, 498, 291, 498, 291, 268, 310, 268]</Nodos>
+	</Linea>
+	<Linea>
+		<Nombre>Linea_8</Nombre>
+		<Bloque_Inicio>SCOPE_1</Bloque_Inicio>
+		<Bloque_Fin>RE_0</Bloque_Fin>
+		<Nodos>[217, 368, 277, 368, 277, 255, 310, 255]</Nodos>
+	</Linea>
+	<Linea>
+		<Nombre>Linea_7</Nombre>
+		<Bloque_Inicio>ADC_0</Bloque_Inicio>
+		<Bloque_Fin>SCOPE_1</Bloque_Fin>
+		<Nodos>[112, 368, 132, 368, 132, 368, 153, 368]</Nodos>
+	</Linea>
+	<Linea>
+		<Nombre>Linea_6</Nombre>
+		<Bloque_Inicio>ADC_1</Bloque_Inicio>
+		<Bloque_Fin>SCOPE_2</Bloque_Fin>
+		<Nodos>[115, 498, 134, 498, 134, 498, 154, 498]</Nodos>
+	</Linea>
+	<Linea>
+		<Nombre>Linea_5</Nombre>
+		<Bloque_Inicio>SAT_0</Bloque_Inicio>
+		<Bloque_Fin>DAC_0</Bloque_Fin>
+		<Nodos>[570, 248, 592, 248, 592, 248, 615, 248]</Nodos>
+	</Linea>
+	<Linea>
+		<Nombre>Linea_4</Nombre>
+		<Bloque_Inicio>DAC_0</Bloque_Inicio>
+		<Bloque_Fin>ENTP_0</Bloque_Fin>
+		<Nodos>[679, 248, 696, 248, 696, 248, 713, 248]</Nodos>
+	</Linea>
+	<Linea>
+		<Nombre>Linea_3</Nombre>
+		<Bloque_Inicio>SCOPE_3</Bloque_Inicio>
+		<Bloque_Fin>SAT_0</Bloque_Fin>
+		<Nodos>[469, 248, 485, 248, 485, 248, 506, 248]</Nodos>
+	</Linea>
+	<Linea>
+		<Nombre>Linea_2</Nombre>
+		<Bloque_Inicio>RE_0</Bloque_Inicio>
+		<Bloque_Fin>SCOPE_3</Bloque_Fin>
+		<Nodos>[374, 248, 396, 248, 396, 248, 405, 248]</Nodos>
+	</Linea>
+	<Linea>
+		<Nombre>Linea_1</Nombre>
+		<Bloque_Inicio>SCOPE_0</Bloque_Inicio>
+		<Bloque_Fin>RE_0</Bloque_Fin>
+		<Nodos>[238, 194, 274, 194, 274, 229, 310, 229]</Nodos>
+	</Linea>
+	<Linea>
+		<Nombre>Linea_0</Nombre>
+		<Bloque_Inicio>STEP_0</Bloque_Inicio>
+		<Bloque_Fin>SCOPE_0</Bloque_Fin>
+		<Nodos>[144, 193, 166, 193, 166, 194, 174, 194]</Nodos>
+	</Linea>
+	<ADC>
+		<Nombre>ADC_0</Nombre>
+		<Posicion_X>80</Posicion_X>
+		<Posicion_Y>369</Posicion_Y>
+		<Entrada_1 />
+		<Salida_1>Linea_7</Salida_1>
+		<Variable_Rango>7</Variable_Rango>
+		<Variable_Tiempo_Muestreo>10</Variable_Tiempo_Muestreo>
+		<Variable_Ganancia>0.5</Variable_Ganancia>
+	</ADC>
+	<ADC>
+		<Nombre>ADC_1</Nombre>
+		<Posicion_X>83</Posicion_X>
+		<Posicion_Y>499</Posicion_Y>
+		<Entrada_1 />
+		<Salida_1>Linea_6</Salida_1>
+		<Variable_Rango>7</Variable_Rango>
+		<Variable_Tiempo_Muestreo>10</Variable_Tiempo_Muestreo>
+		<Variable_Ganancia>0.1</Variable_Ganancia>
+	</ADC>
+	<RE>
+		<Nombre>RE_0</Nombre>
+		<Tipo_RE>RE_2x1</Tipo_RE>
+		<Posicion_X>342</Posicion_X>
+		<Posicion_Y>249</Posicion_Y>
+		<Entrada_1>Linea_1</Entrada_1>
+		<Entrada_2 />
+		<Entrada_3>Linea_8</Entrada_3>
+		<Entrada_4>Linea_9</Entrada_4>
+		<Entrada_5 />
+		<Entrada_6 />
+		<Entrada_7 />
+		<Salida_1>Linea_2</Salida_1>
+		<Salida_2 />
+		<Variable_Tipo>2</Variable_Tipo>
+		<Variable_N>2</Variable_N>
+		<Variable_M>1</Variable_M>
+		<Variable_Y1>x1</Variable_Y1>
+		<Variable_Y2>x2</Variable_Y2>
+		<Variable_K0>1</Variable_K0>
+		<Variable_Matriz_K>[-1.1651, -12.3697]</Variable_Matriz_K>
+		<Variable_Matriz_Ki>[1.1926]</Variable_Matriz_Ki>
+	</RE>
+	<SAT>
+		<Nombre>SAT_0</Nombre>
+		<Posicion_X>538</Posicion_X>
+		<Posicion_Y>249</Posicion_Y>
+		<Entrada_1>Linea_3</Entrada_1>
+		<Salida_1>Linea_5</Salida_1>
+		<Variable_Limite_Superior>8</Variable_Limite_Superior>
+		<Variable_Limite_Inferior>0</Variable_Limite_Inferior>
+	</SAT>
+	<ENTP>
+		<Nombre>ENTP_0</Nombre>
+		<Posicion_X>743</Posicion_X>
+		<Posicion_Y>248</Posicion_Y>
+		<Entrada_1>Linea_4</Entrada_1>
+		<Variable_Nombre_Bloque>Ua</Variable_Nombre_Bloque>
+	</ENTP>
+	<DAC>
+		<Nombre>DAC_0</Nombre>
+		<Posicion_X>647</Posicion_X>
+		<Posicion_Y>249</Posicion_Y>
+		<Entrada_1>Linea_5</Entrada_1>
+		<Salida_1>Linea_4</Salida_1>
+		<Variable_Rango>2</Variable_Rango>
+		<Variable_Tiempo_Muestreo>10</Variable_Tiempo_Muestreo>
+		<Variable_Ganancia>0.4167</Variable_Ganancia>
+	</DAC>
+	<SCOPE>
+		<Nombre>SCOPE_3</Nombre>
+		<Posicion_X>437</Posicion_X>
+		<Posicion_Y>249</Posicion_Y>
+		<Entrada_1>Linea_2</Entrada_1>
+		<Salida_1>Linea_3</Salida_1>
+		<Variable_Nombre_Bloque>REI</Variable_Nombre_Bloque>
+	</SCOPE>
+	<SCOPE>
+		<Nombre>SCOPE_0</Nombre>
+		<Posicion_X>206</Posicion_X>
+		<Posicion_Y>195</Posicion_Y>
+		<Entrada_1>Linea_0</Entrada_1>
+		<Salida_1>Linea_1</Salida_1>
+		<Variable_Nombre_Bloque>ENTRADA</Variable_Nombre_Bloque>
+	</SCOPE>
+	<SCOPE>
+		<Nombre>SCOPE_1</Nombre>
+		<Posicion_X>185</Posicion_X>
+		<Posicion_Y>369</Posicion_Y>
+		<Entrada_1>Linea_7</Entrada_1>
+		<Salida_1>Linea_8</Salida_1>
+		<Variable_Nombre_Bloque>VELOCIDAD</Variable_Nombre_Bloque>
+	</SCOPE>
+	<SCOPE>
+		<Nombre>SCOPE_2</Nombre>
+		<Posicion_X>186</Posicion_X>
+		<Posicion_Y>499</Posicion_Y>
+		<Entrada_1>Linea_6</Entrada_1>
+		<Salida_1>Linea_9</Salida_1>
+		<Variable_Nombre_Bloque>CORRIENTE</Variable_Nombre_Bloque>
+	</SCOPE>
+	<STEP>
+		<Nombre>STEP_0</Nombre>
+		<Posicion_X>112</Posicion_X>
+		<Posicion_Y>194</Posicion_Y>
+		<Salida_1>Linea_0</Salida_1>
+		<Variable_Escalon>1</Variable_Escalon>
+		<Variable_Valor_Inicial>0</Variable_Valor_Inicial>
+		<Variable_Valor_Final>4</Variable_Valor_Final>
+	</STEP>
+</Laboratorio_Control_Automatico>

@@ -1,0 +1,8 @@
+La planta posee una base sólida de madera, sobre la cual se encuentra montado, un canal de aluminio que da soporte a un eje central, al cual está sujeto el brazo pivotante, asimétrico, de tubo de aluminio. Dentro del canal se encuentra el conjunto de anillos deslizantes de 6 hilos a través del cual se pasa la alimentación de 5V para la electrónica en el brazo y también la alimentación de los dos motores de 24 VCD con escobillas. Los motores, acoplados a sendas hélices GEMFAN 5045BN, con protectores de acrílico, no poseen caja reductora y su velocidad se controla variando la tensión de armadura por medio de un puente H doble de 24V/7A. Para medir el ángulo cada eje posee un codificador óptico incremental USDigital E5 de 900 ppr (3600 cpr). Ambos ejes del helicóptero están montados en rodamientos lo que redunda en una muy baja fricción. Un canal de comunicaciones Bluetooth sirve para transmitir, a la unidad de control, los datos del sensor ubicado en la parte superior (pitch). El receptor Bluetooth debe conectarse siempre al QDEC_2.
+
+
+
+
+
+
+

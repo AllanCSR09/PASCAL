@@ -1,0 +1,3 @@
+La planta consta de un soporte rígido de aluminio extruido colocado perpendicularmente sobre una placa de madera. Sobre la parte superior de este soporte se sitúa, montado en rodamientos, el eje de pivote del péndulo. Un sensor de cuadratura óptico incremental, USDigital E5 de 3600 ppr, acoplado al eje, sirve para medir el ángulo. El péndulo mismo está constituido por un tubo hueco de aluminio que al final está unido a un motor sin escobillas, BLDC, Hobbymate 2204, gobernado por un controlador de velocidad, ESC, OneShot125 BLHeli de 15A. El motor tiene adosada una hélice GEMFAN 5045BN protegida por rejillas cortadas en acrílico.
+
+
