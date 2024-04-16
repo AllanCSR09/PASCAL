@@ -52,7 +52,6 @@ import serial.tools.list_ports
 
 # from VentanaPrincipal import Aplicacion
 # import VentanaPrincipal.Aplicacion as andrewindow
-
 # Temas
 
 
