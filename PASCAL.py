@@ -33,6 +33,7 @@ from claseLinea import ListaLinea
 from claseDER import ListaDER
 from claseSUM import ListaSUM
 from claseREST import ListaREST
+from clasePFT import ListaPFT
 from tkinter import filedialog
 import GuardarArchivo
 import Simulacion
@@ -292,6 +293,10 @@ def inButtonSALP(event):
 
 def inButtonENTP(event):
     status_bar.configure(text="Entrada a la Planta")
+
+
+def inButtonPFT(event):
+    status_bar.configure(text="Función de transferencia de planta")
 
 
 def outButton(event):
@@ -1931,6 +1936,8 @@ def estructura():
             imagen = PhotoImage(file="SALPn.png")
         if icono == "ENTP":
             imagen = PhotoImage(file="ENTPn.png")
+        if icono == "PFT":
+            imagen = PhotoImage(file="PFT_sideBar.png")
 
         px = posicion_x + dx - 185
         py = posicion_y + dy  # -35
@@ -2019,6 +2026,10 @@ def estructura():
                 if lista.tamano() < 3:  # Máximo número de REST
                     lista.agregar(tupla_listas, coordenada_x, coordenada_y)
 
+            elif lista == lista_PFT:
+                if lista.tamano() < 2:  # Máximo número de PFT
+                    lista.agregar(tupla_listas, coordenada_x, coordenada_y)
+
             else:
                 lista.agregar(tupla_listas, coordenada_x, coordenada_y)
 
@@ -2099,12 +2110,17 @@ def estructura():
                 "<ButtonRelease-1>", lambda event: nuevoModulo(event, lista_REST)
             )
 
-            icono_7 = PhotoImage(file="Fondo.png")
+            icono_7 = PhotoImage(file="PFT_sideBar.png")
             icon_7.configure(image=icono_7, cursor="arrow")
             icon_7.image = icono_7
             icon_7.unbind("<Button-1>")
             icon_7.unbind("<B1-Motion>")
             icon_7.unbind("<ButtonRelease-1>")
+            icon_7.bind("<Button-1>", lambda event: coordenadasIcono(event, "PFT"))
+            icon_7.bind("<B1-Motion>", arrastrarIcono)
+            icon_7.bind(
+                "<ButtonRelease-1>", lambda event: nuevoModulo(event, lista_PFT)
+            )
 
             icono_8 = PhotoImage(file="Fondo.png")
             icon_8.configure(image=icono_8, cursor="arrow")
@@ -2583,6 +2599,7 @@ def estructura():
     lista_DER = ListaDER()
     lista_SUM = ListaSUM()
     lista_REST = ListaREST()
+    lista_PFT = ListaPFT()
 
     tupla_listas = (
         frm_estructura,  # [0]
@@ -2605,8 +2622,9 @@ def estructura():
         lista_TRAPECIO,  # [17]
         lista_DER,  # [18]
         lista_SUM,  # [19]
-        lista_REST,
-    )  # [20]
+        lista_REST,  # [20]
+        lista_PFT,
+    )  # [21]
 
     global cambiosArchivo
     cambiosArchivo = False
@@ -2965,6 +2983,25 @@ def estructura():
     icon_ENTP.bind("<Button-1>", lambda event: coordenadasIcono(event, "ENTP"))
     icon_ENTP.bind("<B1-Motion>", arrastrarIcono)
     icon_ENTP.bind("<ButtonRelease-1>", lambda event: nuevoModulo(event, lista_ENTP))
+
+    # Icono PFT
+    icono_PFT = PhotoImage(file="PFT_sideBar.png")
+    icon_PFT = Label(
+        sideBar,
+        bg="#2C2C2C",
+        image=icono_PFT,
+        borderwidth=0,
+        highlightthickness=0,
+        padx=0,
+        pady=0,
+    )
+    icon_PFT.image = icono_PFT
+    icon_PFT.grid(row=11, column=0, padx=19, pady=(0, 19))
+    icon_PFT.bind("<Enter>", inButtonPFT)
+    icon_PFT.bind("<Leave>", outButtonInStructureScreen)
+    icon_PFT.bind("<Button-1>", lambda event: coordenadasIcono(event, "PFT"))
+    icon_PFT.bind("<B1-Motion>", arrastrarIcono)
+    icon_PFT.bind("<ButtonRelease-1>", lambda event: nuevoModulo(event, lista_PFT))
 
     global trigger
     if trigger == 1:
