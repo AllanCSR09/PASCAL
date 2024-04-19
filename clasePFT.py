@@ -66,6 +66,8 @@ class NodoPFT:
         self.variable_orden = 2
         self.variable_numerador = [1, 2, 3]
         self.variable_denominador = [1, 2]
+        self.variable_numerador2 = [3, 4, 5]
+        self.variable_denominador2 = [6, 7]
 
         # Simulacion -----------------------
         self.ordenEcuacion = 2
@@ -120,9 +122,9 @@ class NodoPFT:
 
             Label(
                 self.frame2,
-                text="Función de transferencia",
+                text="Planta de Función de transferencia",
                 font=("Arial Rounded MT Bold", -18),
-            ).grid(row=0, column=0, columnspan=2, sticky=W, padx=10, pady=10)
+            ).grid(row=0, column=0, columnspan=3, sticky=W, padx=10, pady=10)
 
             self.imagen_bloque = PhotoImage(file="PFT.png")
             self.imagen_bloque_label = Label(
@@ -170,10 +172,40 @@ class NodoPFT:
                 self.orden,
                 None,
                 *opciones_orden,
-                command=self.cambiarDiagrama
-            ).grid(row=2, column=1, sticky=W, pady=(0, 0))
+                command=self.cambiarDiagrama,
+            ).grid(row=2, column=0, sticky=E, padx=(0, 60))
+
+            self.n = StringVar()
+            self.m = StringVar()
+
+            self.opciones_entrada = ["1", "2"]
+            self.opciones_salida = ["1", "2"]
+            self.opciones_entradas_u = ["1", "2"]
+
+            Label(self.frame2, text="Entradas:").grid(row=2, column=1, sticky=W)
+            ttk.OptionMenu(
+                self.frame2,
+                self.n,
+                None,
+                *self.opciones_entrada,
+            ).grid(row=2, column=1, sticky=E, padx=(0, 80))
+
+            Label(self.frame2, text="Salidas: ").grid(row=3, column=1, sticky=W)
+            ttk.OptionMenu(
+                self.frame2,
+                self.m,
+                None,
+                *self.opciones_salida,
+            ).grid(row=3, column=1, sticky=E, padx=(0, 80))
 
             self.numerador = StringVar()
+            self.numerador2 = StringVar()
+            self.denominador = StringVar()
+            self.denominador2 = StringVar()
+
+            Label(self.frame2, text="Función de transferencia 1:").grid(
+                row=4, column=0, sticky=W, padx=(20, 0), pady=(10, 10)
+            )
 
             if self.variable_numerador is None:
                 self.numerador.set("[b3, b2, b1, b0]")
@@ -189,13 +221,11 @@ class NodoPFT:
                 self.numerador.set(num)
 
             Label(self.frame2, text="Numerador:").grid(
-                row=3, column=0, sticky=W, padx=(20, 0)
+                row=5, column=0, sticky=W, padx=(20, 0)
             )
             ttk.Entry(self.frame2, width=25, textvariable=self.numerador).grid(
-                row=3, column=1, sticky=W, padx=(0, 20)
+                row=5, column=1, sticky=W, padx=(0, 20)
             )
-
-            self.denominador = StringVar()
 
             if self.variable_denominador is None:
                 self.denominador.set("[a3, a2, a1, a0]")
@@ -211,10 +241,54 @@ class NodoPFT:
                 self.denominador.set(den)
 
             Label(self.frame2, text="Denominador:").grid(
-                row=4, column=0, sticky=W, padx=(20, 0), pady=(0, 0)
+                row=6, column=0, sticky=W, padx=(20, 0), pady=(0, 0)
             )
             ttk.Entry(self.frame2, width=25, textvariable=self.denominador).grid(
-                row=4, column=1, sticky=W, padx=(0, 20), pady=(0, 0)
+                row=6, column=1, sticky=W, padx=(0, 20), pady=(0, 0)
+            )
+
+            Label(self.frame2, text="Función de transferencia 2:").grid(
+                row=7, column=0, sticky=W, padx=(20, 0), pady=(10, 10)
+            )
+
+            if self.variable_numerador2 is None:
+                self.numerador2.set("[b3, b2, b1, b0]")
+            else:
+                num = "["
+                for i in range(0, len(self.variable_numerador2)):
+
+                    if i == len(self.variable_numerador2) - 1:
+                        num = num + str(self.variable_numerador2[i]) + "]"
+                    else:
+                        num = num + str(self.variable_numerador2[i]) + ", "
+
+                self.numerador2.set(num)
+
+            Label(self.frame2, text="Numerador:").grid(
+                row=8, column=0, sticky=W, padx=(20, 0)
+            )
+            ttk.Entry(self.frame2, width=25, textvariable=self.numerador).grid(
+                row=8, column=1, sticky=W, padx=(0, 20)
+            )
+
+            if self.variable_denominador2 is None:
+                self.denominador2.set("[a3, a2, a1, a0]")
+            else:
+                den = "["
+                for i in range(0, len(self.variable_denominador2)):
+
+                    if i == len(self.variable_denominador2) - 1:
+                        den = den + str(self.variable_denominador2[i]) + "]"
+                    else:
+                        den = den + str(self.variable_denominador2[i]) + ", "
+
+                self.denominador2.set(den)
+
+            Label(self.frame2, text="Denominador:").grid(
+                row=9, column=0, sticky=W, padx=(20, 0), pady=(0, 0)
+            )
+            ttk.Entry(self.frame2, width=25, textvariable=self.denominador2).grid(
+                row=9, column=1, sticky=W, padx=(0, 20), pady=(0, 0)
             )
 
             self.rt = IntVar()
@@ -225,24 +299,24 @@ class NodoPFT:
 
             self.cambiarIcono()
 
-            ttk.Checkbutton(
-                self.frame2,
-                text="Retroalimentacion",
-                variable=self.rt,
-                command=self.cambiarIcono,
-            ).grid(row=5, column=1, sticky=E, padx=(0, 20), pady=(0, 20))
+            #     ttk.Checkbutton(
+            #        self.frame2,
+            #       text="Retroalimentacion",
+            #      variable=self.rt,
+            #     command=self.cambiarIcono,
+            # ).grid(row=10, column=1, sticky=E, padx=(0, 20), pady=(0, 20))
 
             # -------------------- FRAME 3 --------------------
             ttk.Button(
                 self.frame3,
                 text="Aceptar",
                 command=lambda: self.cerrarVentanaPFT("Aceptar"),
-            ).pack(side=RIGHT, padx=(10, 20), pady=(0, 10))
+            ).pack(side=RIGHT, padx=(10, 20), pady=(15, 10))
             ttk.Button(
                 self.frame3,
                 text="Cancelar",
                 command=lambda: self.cerrarVentanaPFT("Cancelar"),
-            ).pack(side=RIGHT, pady=(0, 10))
+            ).pack(side=RIGHT, pady=(15, 10))
 
             self.frame1.pack(side=TOP, fill=BOTH)
             self.frame2.pack(side=TOP, fill=BOTH)
@@ -594,7 +668,7 @@ class NodoPFT:
             if self.salida is not None:
                 self.tupla_listas[2].eliminarConexion(self.salida)
 
-            self.tupla_listas[8].remover(self.nombre)
+            self.tupla_listas[21].remover(self.nombre)
 
     def enMovimientoPFT(self, event):
 
