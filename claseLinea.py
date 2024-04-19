@@ -148,8 +148,10 @@ class NodoLinea:
                             actual.entrada_1 = None
                         if actual.entrada_2 == self.nombre:
                             actual.entrada_2 = None
-                        if actual.salida == self.nombre:
-                            actual.salida = None
+                        if actual.salida_1 == self.nombre:
+                            actual.salida_1 = None
+                        if actual.salida_2 == self.nombre:
+                            actual.salida_2 = None
 
                     else:
                         if actual.entrada == self.nombre:
@@ -348,8 +350,10 @@ class NodoLinea:
                             actual.entrada_1 = None
                         if actual.entrada_2 == self.nombre:
                             actual.entrada_2 = None
-                        if actual.salida == self.nombre:
-                            actual.salida = None
+                        if actual.salida_1 == self.nombre:
+                            actual.salida_1 = None
+                        if actual.salida_2 == self.nombre:
+                            actual.salida_2 = None
 
                     else:
                         if actual.entrada == self.nombre:
