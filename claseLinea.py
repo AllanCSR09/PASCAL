@@ -6,7 +6,7 @@ class NodoLinea:
 
         self.dato = id_Linea
         self.tipo = "Linea"
-        self.nombre = "Linea_"+str(id_Linea)
+        self.nombre = "Linea_" + str(id_Linea)
 
         self.nodos = nodosLinea
         self.nodos_a_dibujar = nodosLinea
@@ -56,61 +56,106 @@ class NodoLinea:
                 if actual.nombre == self.bloqueInicio and self.cancelarConexion:
 
                     if actual.tipo == "PID":
-                        if actual.entrada1 == self.nombre: actual.entrada1 = None
-                        if actual.entrada2 == self.nombre: actual.entrada2 = None
-                        if actual.salida == self.nombre: actual.salida = None
+                        if actual.entrada1 == self.nombre:
+                            actual.entrada1 = None
+                        if actual.entrada2 == self.nombre:
+                            actual.entrada2 = None
+                        if actual.salida == self.nombre:
+                            actual.salida = None
 
                     elif actual.tipo == "RE":
-                        if actual.entrada_1 == self.nombre: actual.entrada_1 = None
-                        if actual.entrada_2 == self.nombre: actual.entrada_2 = None
-                        if actual.entrada_3 == self.nombre: actual.entrada_3 = None
-                        if actual.entrada_4 == self.nombre: actual.entrada_4 = None
-                        if actual.entrada_5 == self.nombre: actual.entrada_5 = None
-                        if actual.entrada_6 == self.nombre: actual.entrada_6 = None
-                        if actual.entrada_7 == self.nombre: actual.entrada_7 = None
+                        if actual.entrada_1 == self.nombre:
+                            actual.entrada_1 = None
+                        if actual.entrada_2 == self.nombre:
+                            actual.entrada_2 = None
+                        if actual.entrada_3 == self.nombre:
+                            actual.entrada_3 = None
+                        if actual.entrada_4 == self.nombre:
+                            actual.entrada_4 = None
+                        if actual.entrada_5 == self.nombre:
+                            actual.entrada_5 = None
+                        if actual.entrada_6 == self.nombre:
+                            actual.entrada_6 = None
+                        if actual.entrada_7 == self.nombre:
+                            actual.entrada_7 = None
 
-                        if actual.salida_1 == self.nombre: actual.salida_1 = None
-                        if actual.salida_2 == self.nombre: actual.salida_2 = None
+                        if actual.salida_1 == self.nombre:
+                            actual.salida_1 = None
+                        if actual.salida_2 == self.nombre:
+                            actual.salida_2 = None
 
                     elif actual.tipo == "CTE":
-                        if actual.salida == self.nombre: actual.salida = None
+                        if actual.salida == self.nombre:
+                            actual.salida = None
 
                     elif actual.tipo == "FT":
-                        if actual.entrada_1 == self.nombre: actual.entrada_1 = None
-                        if actual.entrada_2 == self.nombre: actual.entrada_2 = None
-                        if actual.salida == self.nombre: actual.salida = None
+                        if actual.entrada_1 == self.nombre:
+                            actual.entrada_1 = None
+                        if actual.entrada_2 == self.nombre:
+                            actual.entrada_2 = None
+                        if actual.salida == self.nombre:
+                            actual.salida = None
 
                     elif actual.tipo == "STEP":
-                        if actual.salida == self.nombre: actual.salida = None
+                        if actual.salida == self.nombre:
+                            actual.salida = None
 
                     elif actual.tipo == "TRAPECIO":
-                        if actual.salida == self.nombre: actual.salida = None
+                        if actual.salida == self.nombre:
+                            actual.salida = None
 
                     elif actual.tipo == "DER":
-                        if actual.entrada == self.nombre: actual.entrada = None
+                        if actual.entrada == self.nombre:
+                            actual.entrada = None
 
-                        if actual.salida_1 == self.nombre: actual.salida_1 = None
-                        if actual.salida_2 == self.nombre: actual.salida_2 = None
+                        if actual.salida_1 == self.nombre:
+                            actual.salida_1 = None
+                        if actual.salida_2 == self.nombre:
+                            actual.salida_2 = None
 
                     elif actual.tipo == "SUM":
-                        if actual.entrada_1 == self.nombre: actual.entrada_1 = None
-                        if actual.entrada_2 == self.nombre: actual.entrada_2 = None
-                        if actual.salida == self.nombre: actual.salida = None
+                        if actual.entrada_1 == self.nombre:
+                            actual.entrada_1 = None
+                        if actual.entrada_2 == self.nombre:
+                            actual.entrada_2 = None
+                        if actual.salida == self.nombre:
+                            actual.salida = None
 
                     elif actual.tipo == "REST":
-                        if actual.entrada_1 == self.nombre: actual.entrada_1 = None
-                        if actual.entrada_2 == self.nombre: actual.entrada_2 = None
-                        if actual.salida == self.nombre: actual.salida = None
+                        if actual.entrada_1 == self.nombre:
+                            actual.entrada_1 = None
+                        if actual.entrada_2 == self.nombre:
+                            actual.entrada_2 = None
+                        if actual.salida == self.nombre:
+                            actual.salida = None
 
                     elif actual.tipo == "SALP":
-                        if actual.salida == self.nombre: actual.salida = None
+                        if actual.salida == self.nombre:
+                            actual.salida = None
 
                     elif actual.tipo == "ENTP":
-                        if actual.entrada == self.nombre: actual.entrada = None
+                        if actual.entrada == self.nombre:
+                            actual.entrada = None
+                    elif actual.tipo == "PLT":
+                        if actual.entrada_1 == self.nombre:
+                            actual.entrada_1 = None
+                        if actual.entrada_2 == self.nombre:
+                            actual.entrada_2 = None
+                        if actual.salida == self.nombre:
+                            actual.salida = None
+                    elif actual.tipo == "PFT":
+                        if actual.entrada_1 == self.nombre:
+                            actual.entrada_1 = None
+                        if actual.entrada_2 == self.nombre:
+                            actual.entrada_2 = None
+                        if actual.salida == self.nombre:
+                            actual.salida = None
 
                     else:
-                        if actual.entrada == self.nombre: actual.entrada = None
-                        if actual.salida == self.nombre: actual.salida = None
+                        if actual.entrada == self.nombre:
+                            actual.entrada = None
+                        if actual.salida == self.nombre:
+                            actual.salida = None
 
                 actual = actual.siguiente
 
@@ -137,7 +182,9 @@ class NodoLinea:
             self.nodos_a_dibujar = self.nodos + [a, d, c, d]
 
         self.window.delete(self.nombre)
-        self.window.create_line(self.nodos_a_dibujar, width=3, tags=self.nombre, joinstyle=ROUND, arrow=LAST)
+        self.window.create_line(
+            self.nodos_a_dibujar, width=3, tags=self.nombre, joinstyle=ROUND, arrow=LAST
+        )
         self.window.tag_lower(self.nombre)  # tag_raise , tag_lower = send to back
 
     def cancelar(self, event):
@@ -182,10 +229,18 @@ class NodoLinea:
                 self.nodos = self.nodos_a_dibujar
 
                 tamano = len(self.nodos)
-                if self.nodos[tamano-4] == self.nodos[tamano-6] == self.nodos[tamano-8]:
-                    del self.nodos[tamano-6:tamano-4]
-                elif self.nodos[tamano-3] == self.nodos[tamano-5] == self.nodos[tamano-7]:
-                    del self.nodos[tamano-6:tamano-4]
+                if (
+                    self.nodos[tamano - 4]
+                    == self.nodos[tamano - 6]
+                    == self.nodos[tamano - 8]
+                ):
+                    del self.nodos[tamano - 6 : tamano - 4]
+                elif (
+                    self.nodos[tamano - 3]
+                    == self.nodos[tamano - 5]
+                    == self.nodos[tamano - 7]
+                ):
+                    del self.nodos[tamano - 6 : tamano - 4]
             else:
                 self.nodos = self.nodos_a_dibujar
 
@@ -207,61 +262,100 @@ class NodoLinea:
                 while actual is not None:
 
                     if i == 4:  # Caso PID
-                        if actual.entrada1 == self.nombre: actual.entrada1 = None
-                        if actual.entrada2 == self.nombre: actual.entrada2 = None
-                        if actual.salida == self.nombre: actual.salida = None
+                        if actual.entrada1 == self.nombre:
+                            actual.entrada1 = None
+                        if actual.entrada2 == self.nombre:
+                            actual.entrada2 = None
+                        if actual.salida == self.nombre:
+                            actual.salida = None
 
                     elif i == 6:  # Caso RE
 
-                        if actual.entrada_1 == self.nombre: actual.entrada_1 = None
-                        if actual.entrada_2 == self.nombre: actual.entrada_2 = None
-                        if actual.entrada_3 == self.nombre: actual.entrada_3 = None
-                        if actual.entrada_4 == self.nombre: actual.entrada_4 = None
-                        if actual.entrada_5 == self.nombre: actual.entrada_5 = None
-                        if actual.entrada_6 == self.nombre: actual.entrada_6 = None
-                        if actual.entrada_7 == self.nombre: actual.entrada_7 = None
+                        if actual.entrada_1 == self.nombre:
+                            actual.entrada_1 = None
+                        if actual.entrada_2 == self.nombre:
+                            actual.entrada_2 = None
+                        if actual.entrada_3 == self.nombre:
+                            actual.entrada_3 = None
+                        if actual.entrada_4 == self.nombre:
+                            actual.entrada_4 = None
+                        if actual.entrada_5 == self.nombre:
+                            actual.entrada_5 = None
+                        if actual.entrada_6 == self.nombre:
+                            actual.entrada_6 = None
+                        if actual.entrada_7 == self.nombre:
+                            actual.entrada_7 = None
 
-                        if actual.salida_1 == self.nombre: actual.salida_1 = None
-                        if actual.salida_2 == self.nombre: actual.salida_2 = None
+                        if actual.salida_1 == self.nombre:
+                            actual.salida_1 = None
+                        if actual.salida_2 == self.nombre:
+                            actual.salida_2 = None
 
                     elif i == 7:  # Caso CTE
-                        if actual.salida == self.nombre: actual.salida = None
+                        if actual.salida == self.nombre:
+                            actual.salida = None
 
                     elif i == 8:  # Caso FT
-                        if actual.entrada_1 == self.nombre: actual.entrada_1 = None
-                        if actual.entrada_2 == self.nombre: actual.entrada_2 = None
-                        if actual.salida == self.nombre: actual.salida = None
+                        if actual.entrada_1 == self.nombre:
+                            actual.entrada_1 = None
+                        if actual.entrada_2 == self.nombre:
+                            actual.entrada_2 = None
+                        if actual.salida == self.nombre:
+                            actual.salida = None
 
                     elif i == 11:  # Caso ENTP
-                        if actual.entrada == self.nombre: actual.entrada = None
+                        if actual.entrada == self.nombre:
+                            actual.entrada = None
 
                     elif i == 12:  # Caso SALP
-                        if actual.salida == self.nombre: actual.salida = None
+                        if actual.salida == self.nombre:
+                            actual.salida = None
 
                     elif i == 16:  # Caso STEP
-                        if actual.salida == self.nombre: actual.salida = None
+                        if actual.salida == self.nombre:
+                            actual.salida = None
 
                     elif i == 17:  # Caso TRAPECIO
-                        if actual.salida == self.nombre: actual.salida = None
+                        if actual.salida == self.nombre:
+                            actual.salida = None
 
                     elif i == 18:  # Case DER
-                        if actual.entrada == self.nombre: actual.entrada = None
-                        if actual.salida_1 == self.nombre: actual.salida_1 = None
-                        if actual.salida_2 == self.nombre: actual.salida_2 = None
+                        if actual.entrada == self.nombre:
+                            actual.entrada = None
+                        if actual.salida_1 == self.nombre:
+                            actual.salida_1 = None
+                        if actual.salida_2 == self.nombre:
+                            actual.salida_2 = None
 
                     elif i == 19:  # Caso SUM
-                        if actual.entrada_1 == self.nombre: actual.entrada_1 = None
-                        if actual.entrada_2 == self.nombre: actual.entrada_2 = None
-                        if actual.salida == self.nombre: actual.salida = None
+                        if actual.entrada_1 == self.nombre:
+                            actual.entrada_1 = None
+                        if actual.entrada_2 == self.nombre:
+                            actual.entrada_2 = None
+                        if actual.salida == self.nombre:
+                            actual.salida = None
 
                     elif i == 20:  # Caso REST
-                        if actual.entrada_1 == self.nombre: actual.entrada_1 = None
-                        if actual.entrada_2 == self.nombre: actual.entrada_2 = None
-                        if actual.salida == self.nombre: actual.salida = None
+                        if actual.entrada_1 == self.nombre:
+                            actual.entrada_1 = None
+                        if actual.entrada_2 == self.nombre:
+                            actual.entrada_2 = None
+                        if actual.salida == self.nombre:
+                            actual.salida = None
+
+                    elif i == 21:  # Caso PFT
+                        if actual.entrada_1 == self.nombre:
+                            actual.entrada_1 = None
+                        if actual.entrada_2 == self.nombre:
+                            actual.entrada_2 = None
+                        if actual.salida == self.nombre:
+                            actual.salida = None
 
                     else:
-                        if actual.entrada == self.nombre: actual.entrada = None
-                        if actual.salida == self.nombre: actual.salida = None
+                        if actual.entrada == self.nombre:
+                            actual.entrada = None
+                        if actual.salida == self.nombre:
+                            actual.salida = None
 
                     actual = actual.siguiente
 
@@ -273,7 +367,7 @@ class NodoLinea:
         pass
 
     def salirLinea(self, event):  # Borrar circulos en los nodos
-        self.window.delete(self.nombre+"c")
+        self.window.delete(self.nombre + "c")
 
 
 class ListaLinea:
@@ -321,7 +415,7 @@ class ListaLinea:
 
         temp.window.tag_bind(temp.nombre, "<Leave>", temp.salirLinea)
 
-# -----------------------------------------------------
+    # -----------------------------------------------------
     def abrirArchivo(self, tupla_listas, nombre, bloqueInicio, coordenadasNodos):
 
         n = 0
@@ -343,13 +437,15 @@ class ListaLinea:
         temp.window.tag_bind(temp.nombre, "<B1-Motion>", temp.enMovimientoLinea)
         temp.window.tag_bind(temp.nombre, "<Button-2>", temp.clickDerechoLinea)
 
-        temp.window.create_line(coordenadasNodos, width=3, tags=temp.nombre, joinstyle=ROUND)
+        temp.window.create_line(
+            coordenadasNodos, width=3, tags=temp.nombre, joinstyle=ROUND
+        )
         temp.window.tag_lower(temp.nombre)
         temp.noCreandoConexion()
 
         return temp
 
-# -----------------------------------------------------
+    # -----------------------------------------------------
 
     def vaciarLista(self):
         self.cabeza = None
@@ -444,17 +540,30 @@ class ListaLinea:
 
                 if not actual.tipoCreandoLinea:
                     actual.nodos = self.invertirNodos(actual.nodos)
-                    actual.bloqueInicio, actual.bloqueFin = actual.bloqueFin, actual.bloqueInicio
+                    actual.bloqueInicio, actual.bloqueFin = (
+                        actual.bloqueFin,
+                        actual.bloqueInicio,
+                    )
 
                 if tamano > 3:
                     tamano = len(actual.nodos)
-                    if actual.nodos[tamano - 4] == actual.nodos[tamano - 6] == actual.nodos[tamano - 8]:
-                        del actual.nodos[tamano - 6:tamano - 4]
-                    elif actual.nodos[tamano - 3] == actual.nodos[tamano - 5] == actual.nodos[tamano - 7]:
-                        del actual.nodos[tamano - 6:tamano - 4]
+                    if (
+                        actual.nodos[tamano - 4]
+                        == actual.nodos[tamano - 6]
+                        == actual.nodos[tamano - 8]
+                    ):
+                        del actual.nodos[tamano - 6 : tamano - 4]
+                    elif (
+                        actual.nodos[tamano - 3]
+                        == actual.nodos[tamano - 5]
+                        == actual.nodos[tamano - 7]
+                    ):
+                        del actual.nodos[tamano - 6 : tamano - 4]
 
                 actual.window.delete(actual.nombre)
-                actual.window.create_line(actual.nodos, width=3, tags=actual.nombre, joinstyle=ROUND)
+                actual.window.create_line(
+                    actual.nodos, width=3, tags=actual.nombre, joinstyle=ROUND
+                )
                 actual.window.tag_lower(actual.nombre)
                 actual.window.unbind("<Motion>")
                 actual.window.unbind("<Leave>")
@@ -490,21 +599,28 @@ class ListaLinea:
 
                 if bloque == actual.bloqueInicio:
                     # mover primeras dos coordenadas
-                    actual.nodos[0:2] = [actual.nodos[0]+dx, actual.nodos[1]+dy]
-                    actual.nodos[3] = actual.nodos[3]+dy
+                    actual.nodos[0:2] = [actual.nodos[0] + dx, actual.nodos[1] + dy]
+                    actual.nodos[3] = actual.nodos[3] + dy
 
                     actual.window.delete(actual.nombre)
-                    actual.window.create_line(actual.nodos, width=3, tags=actual.nombre, joinstyle=ROUND)
+                    actual.window.create_line(
+                        actual.nodos, width=3, tags=actual.nombre, joinstyle=ROUND
+                    )
                     actual.window.tag_lower(actual.nombre)
 
                 if bloque == actual.bloqueFin:
                     # mover ultimas dos coordenadas
                     tamano = len(actual.nodos)
-                    actual.nodos[tamano-2:] = [actual.nodos[tamano-2] + dx, actual.nodos[tamano-1] + dy]
-                    actual.nodos[tamano-3] = actual.nodos[tamano-3] + dy
+                    actual.nodos[tamano - 2 :] = [
+                        actual.nodos[tamano - 2] + dx,
+                        actual.nodos[tamano - 1] + dy,
+                    ]
+                    actual.nodos[tamano - 3] = actual.nodos[tamano - 3] + dy
 
                     actual.window.delete(actual.nombre)
-                    actual.window.create_line(actual.nodos, width=3, tags=actual.nombre, joinstyle=ROUND)
+                    actual.window.create_line(
+                        actual.nodos, width=3, tags=actual.nombre, joinstyle=ROUND
+                    )
                     actual.window.tag_lower(actual.nombre)
 
             else:
