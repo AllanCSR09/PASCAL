@@ -32,10 +32,14 @@ class NodoPFT:
         self.window = tupla_listas[1]
         self.mainWindow = tupla_listas[0]
 
-        if self.tipoPFT == "PFT_1x1": self.imagen = PhotoImage(file="PFT_1x1.png")
-        if self.tipoPFT == "PFT_1x2": self.imagen = PhotoImage(file="PFT_1x2.png")
-        if self.tipoPFT == "PFT_2x1": self.imagen = PhotoImage(file="PFT_2x1.png")
-        if self.tipoPFT == "PFT_2x2": self.imagen = PhotoImage(file="PFT_2x2.png")
+        if self.tipoPFT == "PFT_1x1":
+            self.imagen = PhotoImage(file="PFT_1x1.png")
+        if self.tipoPFT == "PFT_1x2":
+            self.imagen = PhotoImage(file="PFT_1x2.png")
+        if self.tipoPFT == "PFT_2x1":
+            self.imagen = PhotoImage(file="PFT_2x1.png")
+        if self.tipoPFT == "PFT_2x2":
+            self.imagen = PhotoImage(file="PFT_2x2.png")
 
         self.icono = self.window.create_image(
             px, py, image=self.imagen, tags=self.nombre
@@ -72,14 +76,15 @@ class NodoPFT:
 
         # Variables ------------------------
         self.tipoPFT = "PFT_1x1"
-        self.variable_orden = 2
+        self.variable_orden = 1
+        self.variable_orden2 = 1
         self.variable_f2 = 1
         self.variable_n = 1
         self.variable_m = 1
-        self.variable_numerador = [1, 2, 3]
-        self.variable_denominador = [1, 2]
-        self.variable_numerador2 = [3, 4, 5]
-        self.variable_denominador2 = [6, 7]
+        self.variable_numerador = ["b2", "b1", "b0"]
+        self.variable_denominador = ["a2", "a1", "a0"]
+        self.variable_numerador2 = ["b2", "b1", "b0"]
+        self.variable_denominador2 = ["a2", "a1", "a0"]
 
         # Simulacion -----------------------
         self.ordenEcuacion = 2
@@ -166,17 +171,8 @@ class NodoPFT:
             self.imagen_funcion_label.image = self.imagen_funcion
             self.imagen_funcion_label.grid(row=1, column=1, columnspan=1, pady=(0, 10))
 
-            self.f2 = IntVar()
-
-            if self.variable_f2 is None:
-                self.f2.set(1)
-            else:
-                self.f2.set(self.variable_f2)
-
-            ttk.Radiobutton(self.frame2, text="1 Función", variable=self.f2, value=1).grid(row=3, column=0, sticky=W, padx=(20, 0))
-            ttk.Radiobutton(self.frame2, text="2 Funciones", variable=self.f2, value=2).grid(row=4, column=0, sticky=W, padx=(20, 0))
-
             self.orden = StringVar()
+            self.orden2 = StringVar()
 
             if self.orden is None:
                 self.orden.set("1")
@@ -187,8 +183,8 @@ class NodoPFT:
 
             opciones_orden = ["1", "2"]
 
-            Label(self.frame2, text="Orden:").grid(
-                row=2, column=0, sticky=W, padx=(20, 0)
+            Label(self.frame2, text="Orden FT1:").grid(
+                row=2, column=0, sticky=W, padx=(20, 10)
             )
             ttk.OptionMenu(
                 self.frame2,
@@ -196,7 +192,28 @@ class NodoPFT:
                 None,
                 *opciones_orden,
                 command=self.cambiarDiagramaEcua,
-            ).grid(row=2, column=0, sticky=E, padx=(0, 60))
+            ).grid(row=2, column=0, sticky=E, padx=(0, 40))
+
+            if self.orden2 is None:
+                self.orden2.set("1")
+            else:
+                self.orden2.set(str(self.variable_orden2))
+
+            self.cambiarDiagramaEcua(None)
+
+            opciones_orden2 = ["1", "2"]
+
+            Label(self.frame2, text="Orden FT2:").grid(
+                row=3, column=0, sticky=W, padx=(20, 10)
+            )
+            self.o2 = ttk.OptionMenu(
+                self.frame2,
+                self.orden2,
+                None,
+                *opciones_orden2,
+                command=self.cambiarDiagramaEcua,
+            )
+            self.o2.grid(row=3, column=0, sticky=E, padx=(0, 40))
 
             self.n = StringVar()
             self.m = StringVar()
@@ -213,7 +230,6 @@ class NodoPFT:
 
             self.opciones_entrada = ["1", "2"]
             self.opciones_salida = ["1", "2"]
-            self.opciones_entradas_u = ["1", "2"]
 
             Label(self.frame2, text="Entradas:").grid(row=2, column=1, sticky=W)
             ttk.OptionMenu(
@@ -299,13 +315,13 @@ class NodoPFT:
 
                 self.numerador2.set(num)
 
-            Label(self.frame2, text="Numerador de prueba:").grid(
+            Label(self.frame2, text="Numerador:").grid(
                 row=9, column=0, sticky=W, padx=(20, 0)
             )
-            self.entry_n2 = ttk.Entry(self.frame2, width=25, textvariable=self.numerador)
-            self.entry_n2.grid(
-                row=9, column=1, sticky=W, padx=(0, 20)
+            self.entry_n2 = ttk.Entry(
+                self.frame2, width=25, textvariable=self.numerador2
             )
+            self.entry_n2.grid(row=9, column=1, sticky=W, padx=(0, 20))
 
             if self.variable_denominador2 is None:
                 self.denominador2.set("[a3, a2, a1, a0]")
@@ -323,16 +339,17 @@ class NodoPFT:
             Label(self.frame2, text="Denominador:").grid(
                 row=10, column=0, sticky=W, padx=(20, 0), pady=(0, 0)
             )
-            ttk.Entry(self.frame2, width=25, textvariable=self.denominador2).grid(
-                row=10, column=1, sticky=W, padx=(0, 20), pady=(0, 0)
+            self.out_n2 = ttk.Entry(
+                self.frame2, width=25, textvariable=self.denominador2
             )
+            self.out_n2.grid(row=10, column=1, sticky=W, padx=(0, 20), pady=(0, 0))
 
             self.rt = IntVar()
             if self.tipoPFT == "PFT_1x1":
                 self.rt.set(0)
             else:
                 self.rt.set(1)
-            
+
             self.cambiarDiagrama(None)
             # self.cambiarIcono()
 
@@ -512,7 +529,7 @@ class NodoPFT:
                     tags=self.label_con_nombre,
                 )
 
-                 # En caso de cambio en numero de entradas/salidas, eliminar conexiones.
+                # En caso de cambio en numero de entradas/salidas, eliminar conexiones.
 
                 if self.variable_n != n or self.variable_m != m:
 
@@ -529,7 +546,6 @@ class NodoPFT:
                         self.tupla_listas[2].eliminarConexion(self.salida_2)
 
                 # -----------------------------
-
 
                 """
                 if self.rt.get() == 1:
@@ -559,6 +575,7 @@ class NodoPFT:
                 """
 
                 self.variable_orden = int(self.orden.get())
+                self.variable_orden2 = int(self.orden.get())
 
                 self.variable_numerador = valor_num
                 self.variable_denominador = valor_den
@@ -611,13 +628,9 @@ class NodoPFT:
         orden = int(self.orden.get())
 
         if orden == 1:
-            self.imagen_funcion = PhotoImage(
-                file="Ecuacion_Funcion_Transferencia_O1.png"
-            )
+            self.imagen_funcion = PhotoImage(file="Ecuacion_PFT.png")
         else:
-            self.imagen_funcion = PhotoImage(
-                file="Ecuacion_Funcion_Transferencia_O2.png"
-            )
+            self.imagen_funcion = PhotoImage(file="Ecuacion_PFT.png")
 
         self.imagen_funcion_label.configure(image=self.imagen_funcion)
         self.imagen_funcion_label.image = self.imagen_funcion
@@ -627,29 +640,54 @@ class NodoPFT:
         n = int(self.n.get())
         m = int(self.m.get())
 
+        if n == 2 or m == 2:
+            if n == 1 and m == 1:
+
+                self.imagen_bloque = PhotoImage(file="Diagrama_PFT_1x1.png")
+
+            if n == 1 and m == 2:
+
+                self.imagen_bloque = PhotoImage(file="Diagrama_PFT_1x2.png")
+
+            if n == 2 and m == 1:
+
+                self.imagen_bloque = PhotoImage(file="Diagrama_PFT_2x1.png")
+
+            if n == 2 and m == 2:
+
+                self.imagen_bloque = PhotoImage(file="Diagrama_PFT_2x2.png")
+
+            self.entry_n2.config(state="normal")
+            self.out_n2.config(state="normal")
+            self.o2.config(state="normal")
+
+            self.imagen_bloque_label.configure(image=self.imagen_bloque)
+            self.imagen_bloque_label.image = self.imagen_bloque
         if n == 1 and m == 1:
+            if n == 1 and m == 1:
 
-            self.imagen_bloque = PhotoImage(file="Diagrama_PFT_1x1.png")
+                self.imagen_bloque = PhotoImage(file="Diagrama_PFT_1x1.png")
 
-        if n == 1 and m == 2:
+            if n == 1 and m == 2:
 
-            self.imagen_bloque = PhotoImage(file="Diagrama_PFT_1x2.png")
+                self.imagen_bloque = PhotoImage(file="Diagrama_PFT_1x2.png")
 
-        if n == 2 and m == 1:
+            if n == 2 and m == 1:
 
-            self.imagen_bloque = PhotoImage(file="Diagrama_PFT_2x1.png")
+                self.imagen_bloque = PhotoImage(file="Diagrama_PFT_2x1.png")
 
-        if n == 2 and m == 2:
+            if n == 2 and m == 2:
 
-            self.imagen_bloque = PhotoImage(file="Diagrama_PFT_2x2.png")
+                self.imagen_bloque = PhotoImage(file="Diagrama_PFT_2x2.png")
 
+            self.entry_n2.config(state="disabled")
+            self.out_n2.config(state="disabled")
+            self.o2.config(state="disabled")
 
-        self.entry_n2.config(state='disabled')
+            self.imagen_bloque_label.configure(image=self.imagen_bloque)
+            self.imagen_bloque_label.image = self.imagen_bloque
 
-        self.imagen_bloque_label.configure(image=self.imagen_bloque)
-        self.imagen_bloque_label.image = self.imagen_bloque
-
-    '''
+    """
     def cambiarIcono(self):
 
         if self.rt.get() == 1:
@@ -659,7 +697,7 @@ class NodoPFT:
 
         self.imagen_bloque_label.configure(image=self.imagen_bloque)
         self.imagen_bloque_label.image = self.imagen_bloque
-    '''
+    """
 
     def arrastrarPFT(self, event):
 
@@ -792,7 +830,6 @@ class NodoPFT:
                                 self.tupla_listas, self.nombre, coord, False
                             )
                             self.entrada_2 = self.creandoLinea
-
 
                 # -------------------------- 2 Entradas --------------------------
                 if self.tipoPFT == "PFT_2x1" or self.tipoPFT == "PFT_2x2":
@@ -1054,7 +1091,7 @@ class NodoPFT:
                     self.window.create_text(
                         self.posicionx + 35,
                         self.posiciony + 7,
-                        text="Salida q",
+                        text="Salida 1",
                         font=("Arial Rounded MT", -10),
                         tags=self.labelSalida1,
                     )
