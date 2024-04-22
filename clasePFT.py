@@ -10,6 +10,7 @@ class NodoPFT:
 
         self.dato = id_PFT
         self.tipo = "PFT"
+        self.tipoPFT = "PFT_1x1"
 
         self.nombre = "PFT_" + str(id_PFT)
         self.posicionx = px
@@ -22,6 +23,7 @@ class NodoPFT:
         # Entrada y Salida
         self.entrada_1 = None
         self.entrada_2 = None
+
         self.salida_1 = None
         self.salida_2 = None
 
@@ -29,7 +31,11 @@ class NodoPFT:
 
         self.window = tupla_listas[1]
         self.mainWindow = tupla_listas[0]
-        self.imagen = PhotoImage(file="PFT_1x1.png")
+
+        if self.tipoPFT == "PFT_1x1": self.imagen = PhotoImage(file="PFT_1x1.png")
+        if self.tipoPFT == "PFT_1x2": self.imagen = PhotoImage(file="PFT_1x2.png")
+        if self.tipoPFT == "PFT_2x1": self.imagen = PhotoImage(file="PFT_2x1.png")
+        if self.tipoPFT == "PFT_2x2": self.imagen = PhotoImage(file="PFT_2x2.png")
 
         self.icono = self.window.create_image(
             px, py, image=self.imagen, tags=self.nombre
@@ -67,6 +73,7 @@ class NodoPFT:
         # Variables ------------------------
         self.tipoPFT = "PFT_1x1"
         self.variable_orden = 2
+        self.variable_f2 = 1
         self.variable_n = 1
         self.variable_m = 1
         self.variable_numerador = [1, 2, 3]
@@ -159,7 +166,18 @@ class NodoPFT:
             self.imagen_funcion_label.image = self.imagen_funcion
             self.imagen_funcion_label.grid(row=1, column=1, columnspan=1, pady=(0, 10))
 
+            self.f2 = IntVar()
+
+            if self.variable_f2 is None:
+                self.f2.set(1)
+            else:
+                self.f2.set(self.variable_f2)
+
+            ttk.Radiobutton(self.frame2, text="1 Función", variable=self.f2, value=1).grid(row=3, column=0, sticky=W, padx=(20, 0))
+            ttk.Radiobutton(self.frame2, text="2 Funciones", variable=self.f2, value=2).grid(row=4, column=0, sticky=W, padx=(20, 0))
+
             self.orden = StringVar()
+
             if self.orden is None:
                 self.orden.set("1")
             else:
@@ -221,7 +239,7 @@ class NodoPFT:
             self.denominador2 = StringVar()
 
             Label(self.frame2, text="Función de transferencia 1:").grid(
-                row=4, column=0, sticky=W, padx=(20, 0), pady=(10, 10)
+                row=5, column=0, sticky=W, padx=(20, 0), pady=(10, 10)
             )
 
             if self.variable_numerador is None:
@@ -238,10 +256,10 @@ class NodoPFT:
                 self.numerador.set(num)
 
             Label(self.frame2, text="Numerador:").grid(
-                row=5, column=0, sticky=W, padx=(20, 0)
+                row=6, column=0, sticky=W, padx=(20, 0)
             )
             ttk.Entry(self.frame2, width=25, textvariable=self.numerador).grid(
-                row=5, column=1, sticky=W, padx=(0, 20)
+                row=6, column=1, sticky=W, padx=(0, 20)
             )
 
             if self.variable_denominador is None:
@@ -258,14 +276,14 @@ class NodoPFT:
                 self.denominador.set(den)
 
             Label(self.frame2, text="Denominador:").grid(
-                row=6, column=0, sticky=W, padx=(20, 0), pady=(0, 0)
+                row=7, column=0, sticky=W, padx=(20, 0), pady=(0, 0)
             )
             ttk.Entry(self.frame2, width=25, textvariable=self.denominador).grid(
-                row=6, column=1, sticky=W, padx=(0, 20), pady=(0, 0)
+                row=7, column=1, sticky=W, padx=(0, 20), pady=(0, 0)
             )
 
             Label(self.frame2, text="Función de transferencia 2:").grid(
-                row=7, column=0, sticky=W, padx=(20, 0), pady=(10, 10)
+                row=8, column=0, sticky=W, padx=(20, 0), pady=(10, 10)
             )
 
             if self.variable_numerador2 is None:
@@ -281,11 +299,12 @@ class NodoPFT:
 
                 self.numerador2.set(num)
 
-            Label(self.frame2, text="Numerador:").grid(
-                row=8, column=0, sticky=W, padx=(20, 0)
+            Label(self.frame2, text="Numerador de prueba:").grid(
+                row=9, column=0, sticky=W, padx=(20, 0)
             )
-            ttk.Entry(self.frame2, width=25, textvariable=self.numerador).grid(
-                row=8, column=1, sticky=W, padx=(0, 20)
+            self.entry_n2 = ttk.Entry(self.frame2, width=25, textvariable=self.numerador)
+            self.entry_n2.grid(
+                row=9, column=1, sticky=W, padx=(0, 20)
             )
 
             if self.variable_denominador2 is None:
@@ -302,10 +321,10 @@ class NodoPFT:
                 self.denominador2.set(den)
 
             Label(self.frame2, text="Denominador:").grid(
-                row=9, column=0, sticky=W, padx=(20, 0), pady=(0, 0)
+                row=10, column=0, sticky=W, padx=(20, 0), pady=(0, 0)
             )
             ttk.Entry(self.frame2, width=25, textvariable=self.denominador2).grid(
-                row=9, column=1, sticky=W, padx=(0, 20), pady=(0, 0)
+                row=10, column=1, sticky=W, padx=(0, 20), pady=(0, 0)
             )
 
             self.rt = IntVar()
@@ -313,8 +332,9 @@ class NodoPFT:
                 self.rt.set(0)
             else:
                 self.rt.set(1)
-
-            self.cambiarIcono()
+            
+            self.cambiarDiagrama(None)
+            # self.cambiarIcono()
 
             #     ttk.Checkbutton(
             #        self.frame2,
@@ -491,6 +511,26 @@ class NodoPFT:
                     font=("Arial Rounded MT", -12, "bold"),
                     tags=self.label_con_nombre,
                 )
+
+                 # En caso de cambio en numero de entradas/salidas, eliminar conexiones.
+
+                if self.variable_n != n or self.variable_m != m:
+
+                    self.variable_n = n
+                    self.variable_m = m
+
+                    if self.entrada_1 is not None:
+                        self.tupla_listas[2].eliminarConexion(self.entrada_1)
+                    if self.entrada_2 is not None:
+                        self.tupla_listas[2].eliminarConexion(self.entrada_2)
+                    if self.salida_1 is not None:
+                        self.tupla_listas[2].eliminarConexion(self.salida_1)
+                    if self.salida_2 is not None:
+                        self.tupla_listas[2].eliminarConexion(self.salida_2)
+
+                # -----------------------------
+
+
                 """
                 if self.rt.get() == 1:
 
@@ -603,9 +643,13 @@ class NodoPFT:
 
             self.imagen_bloque = PhotoImage(file="Diagrama_PFT_2x2.png")
 
+
+        self.entry_n2.config(state='disabled')
+
         self.imagen_bloque_label.configure(image=self.imagen_bloque)
         self.imagen_bloque_label.image = self.imagen_bloque
 
+    '''
     def cambiarIcono(self):
 
         if self.rt.get() == 1:
@@ -615,6 +659,7 @@ class NodoPFT:
 
         self.imagen_bloque_label.configure(image=self.imagen_bloque)
         self.imagen_bloque_label.image = self.imagen_bloque
+    '''
 
     def arrastrarPFT(self, event):
 
@@ -672,14 +717,14 @@ class NodoPFT:
                             and self.salida_1 is None
                             and not self.tipoCreandoLinea
                         ):
-                            tupla = (self.posicionx + 32, self.posiciony - 13)
+                            tupla = (self.posicionx + 32, self.posiciony - 17)
                             self.salida_1 = self.creandoLinea
                             self.tupla_listas[2].ultimoNodo(
                                 self.creandoLinea, self.nombre, tupla
                             )
 
                         if self.creandoLinea is None and self.salida_1 is None:
-                            coord = [self.posicionx + 32, self.posiciony - 13]
+                            coord = [self.posicionx + 32, self.posiciony - 17]
                             self.tupla_listas[2].agregar(
                                 self.tupla_listas, self.nombre, coord, True
                             )  # Nueva Conexion
@@ -692,14 +737,14 @@ class NodoPFT:
                             and self.salida_2 is None
                             and not self.tipoCreandoLinea
                         ):
-                            tupla = (self.posicionx + 32, self.posiciony + 13)
+                            tupla = (self.posicionx + 32, self.posiciony + 16)
                             self.salida_2 = self.creandoLinea
                             self.tupla_listas[2].ultimoNodo(
                                 self.creandoLinea, self.nombre, tupla
                             )
 
                         if self.creandoLinea is None and self.salida_2 is None:
-                            coord = [self.posicionx + 32, self.posiciony + 13]
+                            coord = [self.posicionx + 32, self.posiciony + 16]
                             self.tupla_listas[2].agregar(
                                 self.tupla_listas, self.nombre, coord, True
                             )  # Nueva Conexion
@@ -748,25 +793,6 @@ class NodoPFT:
                             )
                             self.entrada_2 = self.creandoLinea
 
-                    if -38 < self.dx < -28 and 7 < self.dy < 19:  # Entrada_3 RE
-
-                        if (
-                            self.creandoLinea is not None
-                            and self.entrada_3 is None
-                            and self.tipoCreandoLinea
-                        ):
-                            tupla = (self.posicionx - 32, self.posiciony + 12)
-                            self.entrada_3 = self.creandoLinea
-                            self.tupla_listas[2].ultimoNodo(
-                                self.creandoLinea, self.nombre, tupla
-                            )
-
-                        if self.creandoLinea is None and self.entrada_3 is None:
-                            coord = [self.posicionx - 32, self.posiciony + 12]
-                            self.tupla_listas[2].agregar(
-                                self.tupla_listas, self.nombre, coord, False
-                            )  # Nueva Conexion
-                            self.entrada_3 = self.creandoLinea
 
                 # -------------------------- 2 Entradas --------------------------
                 if self.tipoPFT == "PFT_2x1" or self.tipoPFT == "PFT_2x2":
@@ -1028,7 +1054,7 @@ class NodoPFT:
                     self.window.create_text(
                         self.posicionx + 35,
                         self.posiciony + 7,
-                        text="Salida 2 JAJA",
+                        text="Salida q",
                         font=("Arial Rounded MT", -10),
                         tags=self.labelSalida1,
                     )
@@ -1039,7 +1065,7 @@ class NodoPFT:
                     self.window.create_text(
                         self.posicionx + 35,
                         self.posiciony + 33,
-                        text="Salida 2 JIJI",
+                        text="Salida 2",
                         font=("Arial Rounded MT", -10),
                         tags=self.labelSalida2,
                     )
