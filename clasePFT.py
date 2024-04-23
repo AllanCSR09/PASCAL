@@ -86,6 +86,9 @@ class NodoPFT:
         self.variable_numerador2 = ["b2", "b1", "b0"]
         self.variable_denominador2 = ["a2", "a1", "a0"]
 
+        print("La lista es de numerador 1 es:", self.variable_numerador)
+        print("El orden de la función 1 es:", self.variable_orden)
+
         # Simulacion -----------------------
         self.ordenEcuacion = 2
         self.y_n = 0
@@ -305,15 +308,15 @@ class NodoPFT:
             if self.variable_numerador2 is None:
                 self.numerador2.set("[b3, b2, b1, b0]")
             else:
-                num = "["
+                num2 = "["
                 for i in range(0, len(self.variable_numerador2)):
 
                     if i == len(self.variable_numerador2) - 1:
-                        num = num + str(self.variable_numerador2[i]) + "]"
+                        num2 = num2 + str(self.variable_numerador2[i]) + "]"
                     else:
-                        num = num + str(self.variable_numerador2[i]) + ", "
+                        num2 = num2 + str(self.variable_numerador2[i]) + ", "
 
-                self.numerador2.set(num)
+                self.numerador2.set(num2)
 
             Label(self.frame2, text="Numerador:").grid(
                 row=9, column=0, sticky=W, padx=(20, 0)
@@ -326,13 +329,13 @@ class NodoPFT:
             if self.variable_denominador2 is None:
                 self.denominador2.set("[a3, a2, a1, a0]")
             else:
-                den = "["
+                den2 = "["
                 for i in range(0, len(self.variable_denominador2)):
 
                     if i == len(self.variable_denominador2) - 1:
-                        den = den + str(self.variable_denominador2[i]) + "]"
+                        den2 = den2 + str(self.variable_denominador2[i]) + "]"
                     else:
-                        den = den + str(self.variable_denominador2[i]) + ", "
+                        den2 = den2 + str(self.variable_denominador2[i]) + ", "
 
                 self.denominador2.set(den)
 
@@ -413,88 +416,347 @@ class NodoPFT:
 
         if opcion == "Aceptar":
 
-            error = 1
+            print("La lista de numerador 1 es:", self.numerador.get())
+            print("El orden de la función 1 es:", int(self.orden.get()))
+            error = 0
             orden = int(self.orden.get())
+            orden2 = int(self.orden2.get())
 
             try:
-
-                valor_num = eval(self.numerador.get())
                 m = int(self.m.get())
                 n = int(self.n.get())
 
-                if type(valor_num) is not list:
-                    raise Exception
+                if n == 1 and m == 1:
+                    print("Hasta aqui se completo el codigo 0")
 
-                if len(valor_num) == 0 and orden == 1:
-                    valor_num = [0, 0]
+                    valor_num = eval(self.numerador.get())
 
-                if len(valor_num) == 0 and orden == 2:
-                    valor_num = [0, 0, 0]
+                    error = 1
 
-                for i in valor_num:
+                    valor_den = eval(self.denominador.get())
 
-                    if type(i) is not int and type(i) is not float:
+                    print("Hasta aqui se completo el codigo a")
+
+                    if type(valor_num) is not list:
                         raise Exception
 
-                error = 2
-                valor_den = eval(self.denominador.get())
+                    print("Hasta aqui se completo el codigo b")
 
-                if orden == 1:
+                    error = 2
 
-                    if type(valor_den) is int or type(valor_den) is float:
-                        valor_den = [valor_den]
+                    if len(valor_num) == 0 and orden == 1:
+                        valor_num = [0, 0]
 
-                if type(valor_den) is not list:
-                    raise Exception
+                    if len(valor_num) == 0 and orden == 2:
+                        valor_num = [0, 0, 0]
 
-                if len(valor_den) == 0 and orden == 1:
-                    valor_den = [0]
+                    for i in valor_num:
 
-                if len(valor_den) == 0 and orden == 2:
-                    valor_den = [0, 0]
+                        if type(i) is not int and type(i) is not float:
+                            raise Exception
 
-                for i in valor_den:
+                    print("Hasta aqui se completo el codigo c")
 
-                    if type(i) is not int and type(i) is not float:
+                    error = 3
+
+                    print("Hasta aqui se completo el codigo d")
+
+                    if orden == 1:
+
+                        if type(valor_den) is int or type(valor_den) is float:
+                            valor_den = [valor_den]
+
+                    print("Hasta aqui se completo el codigo e")
+
+                    if type(valor_den) is not list:
                         raise Exception
 
-                error = 3
+                    print("Hasta aqui se completo el codigo f")
 
-                if orden == 1:
-                    numerador = [0, 0]
-                else:
-                    numerador = [0, 0, 0]
+                    if len(valor_den) == 0 and orden == 1:
+                        valor_den = [0]
 
-                for i in range(0, len(valor_num)):
-                    numerador[-(i + 1)] = valor_num[-(i + 1)]
+                    print("Hasta aqui se completo el codigo g")
 
-                valor_num = numerador
+                    if len(valor_den) == 0 and orden == 2:
+                        valor_den = [0, 0]
 
-                error = 4
+                    print("Hasta aqui se completo el codigo h")
+
+                    for i in valor_den:
+
+                        if type(i) is not int and type(i) is not float:
+                            raise Exception
+
+                    error = 4
+
+                    print("Hasta aqui se completo el codigo i")
+
+                    if orden == 1:
+                        numerador = [0, 0]
+                    else:
+                        numerador = [0, 0, 0]
+
+                    print("Hasta aqui se completo el codigo j")
+
+                    for i in range(0, len(valor_num)):
+                        numerador[-(i + 1)] = valor_num[-(i + 1)]
+
+                    print("Hasta aqui se completo el codigo k")
+
+                    valor_num = numerador
+
+                    print("Hasta aqui se completo el codigo l")
+
+                    error = 5
+                    if orden == 1:
+                        denominador = [0]
+                    else:
+                        denominador = [0, 0]
+
+                    print("Hasta aqui se completo el codigo m")
+
+                    for i in range(0, len(valor_den)):
+                        denominador[-(i + 1)] = valor_den[-(i + 1)]
+
+                    print("Hasta aqui se completo el codigo n")
+
+                    valor_den = denominador
+
+                    print("Hasta aqui se completo el codigo o")
+
+                    if len(valor_num) > 3 and orden == 2:
+                        raise Exception
+
+                    print("Hasta aqui se completo el codigo p")
+
+                    if len(valor_num) > 2 and orden == 1:
+                        raise Exception
+
+                    print("Hasta aqui se completo el codigo q")
+
+                    if len(valor_den) > 2 and orden == 2:
+                        raise Exception
+
+                    print("Hasta aqui se completo el codigo r")
+
+                    if len(valor_den) > 1 and orden == 1:
+                        raise Exception
+
+                    print("Hasta aqui se completo el codigo s")
+
+                    print("Hasta aqui se completo el codigo 872")
+
+                    self.variable_numerador = valor_num
+
+                    print("Hasta aqui se completo el codigo 873")
+                    self.variable_denominador = valor_den
+
+                    print("Hasta aqui se completo el codigo 874")
+
+                if n != 1 or m != 1:
+                    error = 0
+
+                    print("Hasta aqui se completo el codigo 02")
+
+                    valor_num = eval(self.numerador.get())
+
+                    error = 1
+
+                    valor_den = eval(self.denominador.get())
+
+                    print("Hasta aqui se completo el codigo a2")
+
+                    if type(valor_num) is not list:
+                        raise Exception
+
+                    print("Hasta aqui se completo el codigo b2")
+
+                    error = 2
+
+                    if len(valor_num) == 0 and orden == 1:
+                        valor_num = [0, 0]
+
+                    if len(valor_num) == 0 and orden == 2:
+                        valor_num = [0, 0, 0]
+
+                    for i in valor_num:
+
+                        if type(i) is not int and type(i) is not float:
+                            raise Exception
+
+                    print("Hasta aqui se completo el codigo c2")
+
+                    error = 3
+
+                    print("Hasta aqui se completo el codigo d2")
+
+                    if orden == 1:
+
+                        if type(valor_den) is int or type(valor_den) is float:
+                            valor_den = [valor_den]
+
+                    if type(valor_den) is not list:
+                        raise Exception
+
+                    if len(valor_den) == 0 and orden == 1:
+                        valor_den = [0]
+
+                    if len(valor_den) == 0 and orden == 2:
+                        valor_den = [0, 0]
+
+                    for i in valor_den:
+
+                        if type(i) is not int and type(i) is not float:
+                            raise Exception
+
+                    error = 4
+
+                    if orden == 1:
+                        numerador = [0, 0]
+                    else:
+                        numerador = [0, 0, 0]
+
+                    for i in range(0, len(valor_num)):
+                        numerador[-(i + 1)] = valor_num[-(i + 1)]
+
+                    valor_num = numerador
+
+                    error = 5
+
+                    if orden == 1:
+                        denominador = [0]
+                    else:
+                        denominador = [0, 0]
+
+                    for i in range(0, len(valor_den)):
+                        denominador[-(i + 1)] = valor_den[-(i + 1)]
+
+                    valor_den = denominador
+
+                    if len(valor_num) > 3 and orden == 2:
+                        raise Exception
+
+                    if len(valor_num) > 2 and orden == 1:
+                        raise Exception
+
+                    if len(valor_den) > 2 and orden == 2:
+                        raise Exception
+
+                    if len(valor_den) > 1 and orden == 1:
+                        raise Exception
+
+                    # ------------------------- FT 2 --------------------------#
+
+                    error = 6
+
+                    print("Hasta aqui se completo el codigo 022")
+
+                    valor_num2 = eval(self.numerador2.get())
+
+                    error = 7
+
+                    valor_den2 = eval(self.denominador2.get())
+
+                    print("Hasta aqui se completo el codigo a22")
+
+                    if type(valor_num2) is not list:
+                        raise Exception
+
+                    print("Hasta aqui se completo el codigo b22")
+
+                    error = 8
+
+                    if len(valor_num2) == 0 and orden2 == 1:
+                        valor_num2 = [0, 0]
+
+                    if len(valor_num2) == 0 and orden2 == 2:
+                        valor_num2 = [0, 0, 0]
+
+                    for i in valor_num2:
+
+                        if type(i) is not int and type(i) is not float:
+                            raise Exception
+
+                    print("Hasta aqui se completo el codigo c22")
+
+                    error = 9
+
+                    print("Hasta aqui se completo el codigo d22")
+
+                    if orden2 == 1:
+
+                        if type(valor_den2) is int or type(valor_den2) is float:
+                            valor_den2 = [valor_den2]
+
+                    if type(valor_den2) is not list:
+                        raise Exception
+
+                    if len(valor_den2) == 0 and orden2 == 1:
+                        valor_den2 = [0]
+
+                    if len(valor_den2) == 0 and orden2 == 2:
+                        valor_den2 = [0, 0]
+
+                    for i in valor_den2:
+
+                        if type(i) is not int and type(i) is not float:
+                            raise Exception
+
+                    error = 10
+
+                    if orden2 == 1:
+                        numerador2 = [0, 0]
+                    else:
+                        numerador2 = [0, 0, 0]
+
+                    for i in range(0, len(valor_num2)):
+                        numerador2[-(i + 1)] = valor_num2[-(i + 1)]
+
+                    valor_num2 = numerador2
+
+                    error = 11
+                    if orden2 == 1:
+                        denominador2 = [0]
+                    else:
+                        denominador2 = [0, 0]
+
+                    for i in range(0, len(valor_den2)):
+                        denominador2[-(i + 1)] = valor_den2[-(i + 1)]
+
+                    valor_den2 = denominador2
+
+                    if len(valor_num2) > 3 and orden2 == 2:
+                        raise Exception
+
+                    if len(valor_num2) > 2 and orden2 == 1:
+                        raise Exception
+
+                    if len(valor_den2) > 2 and orden2 == 2:
+                        raise Exception
+
+                    if len(valor_den2) > 1 and orden2 == 1:
+                        raise Exception
+                    print("Hasta aqui se completo el codigo 1872")
+
+                    self.variable_numerador = valor_num
+
+                    print("Hasta aqui se completo el codigo 1873")
+                    self.variable_denominador = valor_den
+
+                    print("Hasta aqui se completo el codigo 1874")
+                    self.variable_numerador2 = valor_num2
+
+                    print("Hasta aqui se completo el codigo 1875")
+                    self.variable_denominador2 = valor_den2
+
+                    print("Hasta aqui se completo el codigo 1876")
+
+                print("Hasta aqui se completo el codigo 62")
 
                 posicion = 45
 
-                if orden == 1:
-                    denominador = [0]
-                else:
-                    denominador = [0, 0]
-
-                for i in range(0, len(valor_den)):
-                    denominador[-(i + 1)] = valor_den[-(i + 1)]
-
-                valor_den = denominador
-
-                if len(valor_num) > 3 and orden == 2:
-                    raise Exception
-
-                if len(valor_num) > 2 and orden == 1:
-                    raise Exception
-
-                if len(valor_den) > 2 and orden == 2:
-                    raise Exception
-
-                if len(valor_den) > 1 and orden == 1:
-                    raise Exception
+                print("Hasta aqui se completo el codigo 82")
 
                 if n == 1 and m == 1:
                     self.tipoPFT = "PFT_1x1"
@@ -530,7 +792,7 @@ class NodoPFT:
                 )
 
                 # En caso de cambio en numero de entradas/salidas, eliminar conexiones.
-
+                print("Hasta aqui se completo el codigo 672")
                 if self.variable_n != n or self.variable_m != m:
 
                     self.variable_n = n
@@ -547,75 +809,113 @@ class NodoPFT:
 
                 # -----------------------------
 
-                """
-                if self.rt.get() == 1:
-
-                    self.imagen = PhotoImage(file="PFT_r.png")
-                    self.window.itemconfig(self.nombre, image=self.imagen)
-
-                else:
-                    self.imagen = PhotoImage(file="PFT.png")
-                    self.window.itemconfig(self.nombre, image=self.imagen)
-
-                if self.rt.get() == 1 and self.tipoPFT != "PFT_2x1":
-
-                    self.tipoPFT = "PFT_2x1"
-                    if self.entrada_1 is not None:
-                        self.tupla_listas[2].eliminarConexion(self.entrada_1)
-                    if self.entrada_2 is not None:
-                        self.tupla_listas[2].eliminarConexion(self.entrada_2)
-
-                if self.rt.get() == 0 and self.tipoPFT != "PFT_1x1":
-
-                    self.tipoPFT = "PFT_1x1"
-                    if self.entrada_1 is not None:
-                        self.tupla_listas[2].eliminarConexion(self.entrada_1)
-                    if self.entrada_2 is not None:
-                        self.tupla_listas[2].eliminarConexion(self.entrada_2)
-                """
+                print("Hasta aqui se completo el codigo 900")
 
                 self.variable_orden = int(self.orden.get())
-                self.variable_orden2 = int(self.orden.get())
-
-                self.variable_numerador = valor_num
-                self.variable_denominador = valor_den
+                self.variable_orden2 = int(self.orden2.get())
 
                 self.ventanaCerrada = True
                 self.windowPFT.destroy()
 
             except Exception:
 
-                if error == 1 and orden == 1:
+                n = int(self.n.get())
+                m = int(self.m.get())
+
+                if error == 0:
                     messagebox.showerror(
-                        "Error", "Numerador inválido\nEl formato debe ser: [b1, b0]"
+                        "Error",
+                        "Numerador FT1 inválido\nEl formato deben ser valores numéricos",
                     )
-                if error == 1 and orden == 2:
+
+                if error == 1:
                     messagebox.showerror(
-                        "Error", "Numerador inválido\nEl formato debe ser: [b2, b1, b0]"
+                        "Error",
+                        "Denominador FT1 inválido\nEl formato deben ser con valores numéricos",
                     )
+
                 if error == 2 and orden == 1:
                     messagebox.showerror(
-                        "Error", "Denominador inválido\nEl formato debe ser: [a0]"
+                        "Error", "Numerador FT1 inválido\nEl formato debe ser: [b1, b0]"
                     )
                 if error == 2 and orden == 2:
                     messagebox.showerror(
-                        "Error", "Denominador inválido\nEl formato debe ser: [a1, a0]"
+                        "Error",
+                        "Numerador FT1 inválido\nEl formato debe ser: [b2, b1, b0]",
                     )
                 if error == 3 and orden == 1:
                     messagebox.showerror(
-                        "Error", "El grado del numerador debe ser igual a 1"
+                        "Error", "Denominador FT1 inválido\nEl formato debe ser: [a0]"
                     )
                 if error == 3 and orden == 2:
                     messagebox.showerror(
-                        "Error", "El grado del numerador debe ser igual a 2"
+                        "Error",
+                        "Denominador FT1 inválido\nEl formato debe ser: [a1, a0]",
                     )
                 if error == 4 and orden == 1:
                     messagebox.showerror(
-                        "Error", "El grado del denominador debe ser igual a 1"
+                        "Error", "El grado del numerador FT1 debe ser igual a 1"
                     )
                 if error == 4 and orden == 2:
                     messagebox.showerror(
-                        "Error", "El grado del denominador debe ser igual a 2"
+                        "Error", "El grado del numerador FT1 debe ser igual a 2"
+                    )
+                if error == 5 and orden == 1:
+                    messagebox.showerror(
+                        "Error", "El grado del denominador FT1 debe ser igual a 1"
+                    )
+                if error == 5 and orden == 2:
+                    messagebox.showerror(
+                        "Error", "El grado del denominador FT1 debe ser igual a 2"
+                    )
+
+                # ------------------------------ ERRORES FT2 --------------------------#
+
+                if error == 6:
+                    messagebox.showerror(
+                        "Error",
+                        "Numerador FT2 inválido\nEl formato deben ser valores numéricos",
+                    )
+
+                if error == 7:
+                    messagebox.showerror(
+                        "Error",
+                        "Denominador FT2 inválido\nEl formato deben ser valores numéricos",
+                    )
+
+                if error == 8 and orden2 == 1:
+                    messagebox.showerror(
+                        "Error", "Numerador FT2 inválido\nEl formato debe ser: [b1, b0]"
+                    )
+                if error == 8 and orden2 == 2:
+                    messagebox.showerror(
+                        "Error",
+                        "Numerador FT2 inválido\nEl formato debe ser: [b2, b1, b0]",
+                    )
+                if error == 9 and orden2 == 1:
+                    messagebox.showerror(
+                        "Error", "Denominador FT2 inválido\nEl formato debe ser: [a0]"
+                    )
+                if error == 9 and orden2 == 2:
+                    messagebox.showerror(
+                        "Error",
+                        "Denominador FT2 inválido\nEl formato debe ser: [a1, a0]",
+                    )
+                if error == 10 and orden2 == 1:
+                    messagebox.showerror(
+                        "Error", "El grado del numerador FT2 debe ser igual a 1"
+                    )
+                if error == 10 and orden2 == 2:
+                    messagebox.showerror(
+                        "Error", "El grado del numerador FT2 debe ser igual a 2"
+                    )
+                if error == 11 and orden2 == 1:
+                    messagebox.showerror(
+                        "Error", "El grado del denominador FT2 debe ser igual a 1"
+                    )
+                if error == 11 and orden2 == 2:
+                    messagebox.showerror(
+                        "Error", "El grado del denominador FT2 debe ser igual a 2"
                     )
 
                 self.windowPFT.lift()
