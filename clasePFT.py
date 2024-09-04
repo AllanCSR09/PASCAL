@@ -15,7 +15,7 @@ class NodoPFT:
         self.nombre = "PFT_" + str(id_PFT)
         self.posicionx = px
         self.posiciony = py
-        self.tipoNetlist = "F"
+        self.tipoNetlist = "T"
 
         self.dx = None
         self.dy = None
@@ -1582,6 +1582,18 @@ class ListaPFT:
         temp.window.tag_bind(temp.nombre, "<Motion>", temp.sobreIcono)
         temp.window.tag_bind(temp.nombre, "<Enter>", temp.dentroDelIcono)
         temp.window.tag_bind(temp.nombre, "<Leave>", temp.afueraDelIcono)
+    
+    def inspeccionar_nodo_PFT(self):
+        if self.cabeza is not None:
+            print(self.cabeza.__dict__)
+        else:
+            print("La lista está vacía")
+    
+    def imprimir_lista_PFT(self):
+        actual = self.cabeza
+        while actual is not None:
+            print(f"Elemento {actual.item}: x = {actual.x}, y = {actual.y}, tupla = {actual.tupla_listas}")
+            actual = actual.siguiente
 
     def abrirArchivo(self, tupla_listas, nombre, x, y):
 

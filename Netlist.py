@@ -23,8 +23,9 @@ class Netlist():
             if self.lista[i].tamano() != 0:
 
                 actual = self.lista[i].cabeza
-                
+                print("Estoy escribiendo ahora: " + actual.tipoNetlist)
                 self.file.write(actual.tipoNetlist + ",")
+                print("El tamano del nodo " + actual.tipoNetlist + " es de: " + str(self.lista[i].tamano()))
                 self.file.write(str(self.lista[i].tamano()) + "\n")
 
         self.file.write("CON\n")
@@ -203,14 +204,20 @@ class Netlist():
                         self.imprimirConfig(actual.tipoNetlist, actual.dato, "00",  actual.variable_constante)
 
                     if actual.tipo == "FT":
-
+                        print("Estoy escribiendo ahora los datos del tipo: " + str(actual.tipoNetlist))
                         if actual.tipoFT == "FT_1x1":
+                            print("El tipo de FT es: " + str(actual.tipoFT))
+                            print("Los datos del modulo FT es: " + str(actual.dato))
                             self.imprimirConfig(actual.tipoNetlist, actual.dato, "00", "0")
                         else:
+                            print("El tipo de FT es: " + str(actual.tipoFT))
+                            print("Los datos del modulo FT es: " + str(actual.dato))
                             self.imprimirConfig(actual.tipoNetlist, actual.dato, "00", "1")
-
+                        print("El modulo FT es de orden: " + str(actual.variable_orden))
                         self.imprimirConfig(actual.tipoNetlist, actual.dato, "01",  actual.variable_orden)
 
+
+                        print("La variable del numerador es: " + str(actual.variable_numerador))
                         variable = str(actual.variable_numerador)
                         variable = list(variable)
 
@@ -231,6 +238,8 @@ class Netlist():
 
                         self.imprimirConfig(actual.tipoNetlist, actual.dato, "02",  variable)
 
+
+                        print("La variable del denominador es: " + str(actual.variable_denominador))
                         variable = str(actual.variable_denominador)
                         variable = list(variable)
 
@@ -511,8 +520,11 @@ class Netlist():
         return tipo
 
     def imprimirConfig(self, tipo, dato, numero, variable):
-
+        print("Escribiendo: " + str(tipo)+"/")
         self.file.write(str(tipo)+"/")
+        print("Escribiendo: " + str(dato)+"/")
         self.file.write(str(dato)+"/")
+        print("Escribiendo: " + str(numero)+"/")
         self.file.write(str(numero)+"/")
+        print("Escribiendo: " + str(variable)+"/")
         self.file.write(str(variable)+"/\n")

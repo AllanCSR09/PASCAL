@@ -7,34 +7,10 @@
 		<Numero_Muestras>1000</Numero_Muestras>
 	</Configuracion>
 	<Linea>
-		<Nombre>Linea_16</Nombre>
-		<Bloque_Inicio>SALP_2</Bloque_Inicio>
-		<Bloque_Fin>ADC_1</Bloque_Fin>
-		<Nodos>[79, 498, 95, 498, 95, 498, 110, 498]</Nodos>
-	</Linea>
-	<Linea>
-		<Nombre>Linea_15</Nombre>
-		<Bloque_Inicio>FT_1</Bloque_Inicio>
-		<Bloque_Fin>ENTP_2</Bloque_Fin>
-		<Nodos>[529, 387, 557, 387, 557, 471, 585, 471]</Nodos>
-	</Linea>
-	<Linea>
 		<Nombre>Linea_14</Nombre>
 		<Bloque_Inicio>SALP_1</Bloque_Inicio>
 		<Bloque_Fin>ADC_0</Bloque_Fin>
 		<Nodos>[78, 62, 94, 62, 94, 62, 117, 62]</Nodos>
-	</Linea>
-	<Linea>
-		<Nombre>Linea_13</Nombre>
-		<Bloque_Inicio>FT_0</Bloque_Inicio>
-		<Bloque_Fin>ENTP_1</Bloque_Fin>
-		<Nodos>[528, 377, 511, 377, 511, 379, 582, 379]</Nodos>
-	</Linea>
-	<Linea>
-		<Nombre>Linea_12</Nombre>
-		<Bloque_Inicio>SALP_0</Bloque_Inicio>
-		<Bloque_Fin>FT_0</Bloque_Fin>
-		<Nodos>[384, 377, 405, 377, 405, 377, 464, 377]</Nodos>
 	</Linea>
 	<Linea>
 		<Nombre>Linea_0</Nombre>
@@ -122,7 +98,7 @@
 		<Nombre>ADC_1</Nombre>
 		<Posicion_X>142</Posicion_X>
 		<Posicion_Y>499</Posicion_Y>
-		<Entrada_1>Linea_16</Entrada_1>
+		<Entrada_1 />
 		<Salida_1>Linea_11</Salida_1>
 		<Variable_Rango>7</Variable_Rango>
 		<Variable_Tiempo_Muestreo>10</Variable_Tiempo_Muestreo>
@@ -149,25 +125,13 @@
 		<Variable_Amplitud>1</Variable_Amplitud>
 	</PWM>
 	<FT>
-		<Nombre>FT_1</Nombre>
-		<Tipo_FT>FT_1x1</Tipo_FT>
-		<Posicion_X>497</Posicion_X>
-		<Posicion_Y>388</Posicion_Y>
-		<Entrada_1 />
-		<Entrada_2 />
-		<Salida_1>Linea_15</Salida_1>
-		<Variable_Orden>2</Variable_Orden>
-		<Variable_Numerador>[1, 2, 3]</Variable_Numerador>
-		<Variable_Denominador>[1, 2]</Variable_Denominador>
-	</FT>
-	<FT>
 		<Nombre>FT_0</Nombre>
 		<Tipo_FT>FT_1x1</Tipo_FT>
-		<Posicion_X>496</Posicion_X>
-		<Posicion_Y>378</Posicion_Y>
-		<Entrada_1>Linea_12</Entrada_1>
+		<Posicion_X>542</Posicion_X>
+		<Posicion_Y>394</Posicion_Y>
+		<Entrada_1 />
 		<Entrada_2 />
-		<Salida_1>Linea_13</Salida_1>
+		<Salida_1 />
 		<Variable_Orden>2</Variable_Orden>
 		<Variable_Numerador>[1, 2, 3]</Variable_Numerador>
 		<Variable_Denominador>[1, 2]</Variable_Denominador>
@@ -182,20 +146,6 @@
 		<Variable_Limite_Inferior>0</Variable_Limite_Inferior>
 	</SAT>
 	<ENTP>
-		<Nombre>ENTP_2</Nombre>
-		<Posicion_X>615</Posicion_X>
-		<Posicion_Y>471</Posicion_Y>
-		<Entrada_1>Linea_15</Entrada_1>
-		<Variable_Nombre_Bloque>CORRIENTE</Variable_Nombre_Bloque>
-	</ENTP>
-	<ENTP>
-		<Nombre>ENTP_1</Nombre>
-		<Posicion_X>612</Posicion_X>
-		<Posicion_Y>379</Posicion_Y>
-		<Entrada_1>Linea_13</Entrada_1>
-		<Variable_Nombre_Bloque>VELOCIDAD</Variable_Nombre_Bloque>
-	</ENTP>
-	<ENTP>
 		<Nombre>ENTP_0</Nombre>
 		<Posicion_X>810</Posicion_X>
 		<Posicion_Y>253</Posicion_Y>
@@ -203,25 +153,11 @@
 		<Variable_Nombre_Bloque>Ua</Variable_Nombre_Bloque>
 	</ENTP>
 	<SALP>
-		<Nombre>SALP_2</Nombre>
-		<Posicion_X>49</Posicion_X>
-		<Posicion_Y>498</Posicion_Y>
-		<Salida_1>Linea_16</Salida_1>
-		<Variable_Nombre_Bloque>CORRIENTE</Variable_Nombre_Bloque>
-	</SALP>
-	<SALP>
 		<Nombre>SALP_1</Nombre>
 		<Posicion_X>48</Posicion_X>
 		<Posicion_Y>62</Posicion_Y>
 		<Salida_1>Linea_14</Salida_1>
 		<Variable_Nombre_Bloque>VELOCIDAD</Variable_Nombre_Bloque>
-	</SALP>
-	<SALP>
-		<Nombre>SALP_0</Nombre>
-		<Posicion_X>354</Posicion_X>
-		<Posicion_Y>377</Posicion_Y>
-		<Salida_1>Linea_12</Salida_1>
-		<Variable_Nombre_Bloque>Ua</Variable_Nombre_Bloque>
 	</SALP>
 	<DAC>
 		<Nombre>DAC_0</Nombre>

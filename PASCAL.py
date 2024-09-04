@@ -95,61 +95,61 @@ theme.set("dark")
 # Botones de la barra de herramientas para todas las pantallas
 # Botón atrás
 abrir_ATRAS = Image.open("Atras.png")
-abrir_ATRAS = abrir_ATRAS.resize((25, 25), Image.ANTIALIAS)
+abrir_ATRAS = abrir_ATRAS.resize((25, 25), Image.Resampling.LANCZOS)
 global img_ATRAS
 img_ATRAS = ImageTk.PhotoImage(abrir_ATRAS)
 
 # Botón Revertir
 abrir_REVERTIR = Image.open("Revertir.png")
-abrir_REVERTIR = abrir_REVERTIR.resize((25, 25), Image.ANTIALIAS)
+abrir_REVERTIR = abrir_REVERTIR.resize((25, 25), Image.Resampling.LANCZOS)
 global img_REVERTIR
 img_REVERTIR = ImageTk.PhotoImage(abrir_REVERTIR)
 
 # Botón Rehacer
 abrir_REHACER = Image.open("Rehacer.png")
-abrir_REHACER = abrir_REHACER.resize((25, 25), Image.ANTIALIAS)
+abrir_REHACER = abrir_REHACER.resize((25, 25), Image.Resampling.LANCZOS)
 global img_REHACER
 img_REHACER = ImageTk.PhotoImage(abrir_REHACER)
 
 # Botón Información
 abrir_INFORMA = Image.open("Informa.png")
-abrir_INFORMA = abrir_INFORMA.resize((25, 25), Image.ANTIALIAS)
+abrir_INFORMA = abrir_INFORMA.resize((25, 25), Image.Resampling.LANCZOS)
 global img_INFORMA
 img_INFORMA = ImageTk.PhotoImage(abrir_INFORMA)
 
 # Botón de borrar
 abrir_BORRAR = Image.open("icono_borrar.png")
-abrir_BORRAR = abrir_BORRAR.resize((25, 25), Image.ANTIALIAS)
+abrir_BORRAR = abrir_BORRAR.resize((25, 25), Image.Resampling.LANCZOS)
 global img_BORRAR
 img_BORRAR = ImageTk.PhotoImage(abrir_BORRAR)
 
 # Botón de simulación
 abrir_SIM = Image.open("SIM.png")
-abrir_SIM = abrir_SIM.resize((25, 25), Image.ANTIALIAS)
+abrir_SIM = abrir_SIM.resize((25, 25), Image.Resampling.LANCZOS)
 global img_SIM
 img_SIM = ImageTk.PhotoImage(abrir_SIM)
 
 # Botón de ejecutar
 abrir_RUN = Image.open("Run.png")
-abrir_RUN = abrir_RUN.resize((25, 25), Image.ANTIALIAS)
+abrir_RUN = abrir_RUN.resize((25, 25), Image.Resampling.LANCZOS)
 global img_RUN
 img_RUN = ImageTk.PhotoImage(abrir_RUN)
 
 # Botón de detener
 abrir_STOP = Image.open("Stop.png")
-abrir_STOP = abrir_STOP.resize((25, 25), Image.ANTIALIAS)
+abrir_STOP = abrir_STOP.resize((25, 25), Image.Resampling.LANCZOS)
 global img_STOP
 img_STOP = ImageTk.PhotoImage(abrir_STOP)
 
 # Botón de transferir
 abrir_TRANSFER = Image.open("Transferir.png")
-abrir_TRANSFER = abrir_TRANSFER.resize((30, 25), Image.ANTIALIAS)
+abrir_TRANSFER = abrir_TRANSFER.resize((30, 25), Image.Resampling.LANCZOS)
 global img_TRANSFER
 img_TRANSFER = ImageTk.PhotoImage(abrir_TRANSFER)
 
 # Boton de Acerca de
 abrir_ACERCA = Image.open("Acercade.png")
-abrir_ACERCA = abrir_ACERCA.resize((30, 25), Image.ANTIALIAS)
+abrir_ACERCA = abrir_ACERCA.resize((30, 25), Image.Resampling.LANCZOS)
 global img_ACERCA
 img_ACERCA = ImageTk.PhotoImage(abrir_ACERCA)
 
@@ -401,9 +401,9 @@ def inicio():
         global canvas_img
         global img_inicio
         img_inicio_new = Image.open("fondoinicio2.png").resize(
-            (event.width, event.height), Image.ANTIALIAS
+            (event.width, event.height), Image.Resampling.LANCZOS
         )
-        # img_inicio_new=img_inicio_new.resize((event.width, event.height), Image.ANTIALIAS)
+        # img_inicio_new=img_inicio_new.resize((event.width, event.height), Image.Resampling.LANCZOS)
         img_inicio = ImageTk.PhotoImage(img_inicio_new)
         canvaInicio.itemconfig(canvas_img, image=img_inicio)
 
@@ -420,7 +420,7 @@ def inicio():
     canvaInicio.bind("<Configure>", resized)
 
     imagenFondo = Image.open("fondoinicio2.png")
-    imagenFondo = imagenFondo.resize((1085, 655), Image.ANTIALIAS)
+    imagenFondo = imagenFondo.resize((1085, 655), Image.Resampling.LANCZOS)
     global img_inicio
     img_inicio = ImageTk.PhotoImage(imagenFondo)
 
@@ -517,12 +517,12 @@ def principal():
         imagen2 = "Configuración2.png"
 
     raw_plantas = Image.open(imagen1)
-    raw_plantas = raw_plantas.resize((250, 250), Image.ANTIALIAS)
+    raw_plantas = raw_plantas.resize((250, 250), Image.Resampling.LANCZOS)
     global img_plantas
     img_plantas = ImageTk.PhotoImage(raw_plantas)
 
     raw_config = Image.open(imagen2)
-    raw_config = raw_config.resize((250, 250), Image.ANTIALIAS)
+    raw_config = raw_config.resize((250, 250), Image.Resampling.LANCZOS)
     global img_config
     img_config = ImageTk.PhotoImage(raw_config)
 
@@ -1052,7 +1052,7 @@ def experiments():
 
             # Ilustración del experimento
             abrirImagen = Image.open("Heli2DOF2.jpg")
-            abrirImagen = abrirImagen.resize((300, 300), Image.ANTIALIAS)
+            abrirImagen = abrirImagen.resize((300, 300), Image.Resampling.LANCZOS)
             cargarImagen = ImageTk.PhotoImage(abrirImagen)
 
             # Descripción del experimento
@@ -1062,7 +1062,7 @@ def experiments():
             abrir_archivo.close()
 
             # Abrir carpeta
-            ruta = "Experimentos\HELI2DOF"
+            ruta = "Experimentos\\HELI2DOF"
 
         if planta == "PAMH":
             # Titulo de la Ventana
@@ -1077,7 +1077,7 @@ def experiments():
 
             # Ilustración del experimento
             abrirImagen = Image.open("Pamh.jpg")
-            abrirImagen = abrirImagen.resize((300, 300), Image.ANTIALIAS)
+            abrirImagen = abrirImagen.resize((300, 300), Image.Resampling.LANCZOS)
             cargarImagen = ImageTk.PhotoImage(abrirImagen)
 
             # Descripción del experimento
@@ -1087,7 +1087,7 @@ def experiments():
             abrir_archivo.close()
 
             # Abrir carpeta
-            ruta = "Experimentos\PAMH"
+            ruta = "Experimentos\\PAMH"
 
         if planta == "BALL&BEAM":
             # Titulo de la Ventana
@@ -1102,7 +1102,7 @@ def experiments():
 
             # Ilustración del experimento
             abrirImagen = Image.open("Ball&Beam.jpg")
-            abrirImagen = abrirImagen.resize((300, 300), Image.ANTIALIAS)
+            abrirImagen = abrirImagen.resize((300, 300), Image.Resampling.LANCZOS)
             cargarImagen = ImageTk.PhotoImage(abrirImagen)
 
             # Descripción del experimento
@@ -1112,7 +1112,7 @@ def experiments():
             abrir_archivo.close()
 
             # Abrir carpeta
-            ruta = "Experimentos\BALL&BEAM"
+            ruta = "Experimentos\\BALL&BEAM"
 
         if planta == "GRUA":
             # Titulo de la Ventana
@@ -1127,7 +1127,7 @@ def experiments():
 
             # Ilustración del experimento
             abrirImagen = Image.open("Grua.jpg")
-            abrirImagen = abrirImagen.resize((450, 300), Image.ANTIALIAS)
+            abrirImagen = abrirImagen.resize((450, 300), Image.Resampling.LANCZOS)
             cargarImagen = ImageTk.PhotoImage(abrirImagen)
 
             # Descripción del experimento
@@ -1137,7 +1137,7 @@ def experiments():
             abrir_archivo.close()
 
             # Abrir carpeta
-            ruta = "Experimentos\GRUA"
+            ruta = "Experimentos\\GRUA"
 
         if planta == "MOTORCD":
             # Titulo de la Ventana
@@ -1152,7 +1152,7 @@ def experiments():
 
             # Ilustración del experimento
             abrirImagen = Image.open("MotorCD.jpg")
-            abrirImagen = abrirImagen.resize((300, 300), Image.ANTIALIAS)
+            abrirImagen = abrirImagen.resize((300, 300), Image.Resampling.LANCZOS)
             cargarImagen = ImageTk.PhotoImage(abrirImagen)
 
             # Descripción del experimento
@@ -1162,7 +1162,7 @@ def experiments():
             abrir_archivo.close()
 
             # Abrir carpeta
-            ruta = "Experimentos\MOTORCD"
+            ruta = "Experimentos\\MOTORCD"
 
         if planta == "Otro":
             # Titulo de la Ventana
@@ -1177,7 +1177,7 @@ def experiments():
 
             # Ilustración del experimento
             abrirImagen = Image.open("Otro.png")
-            abrirImagen = abrirImagen.resize((300, 300), Image.ANTIALIAS)
+            abrirImagen = abrirImagen.resize((300, 300), Image.Resampling.LANCZOS)
             cargarImagen = ImageTk.PhotoImage(abrirImagen)
 
             # Descripción del experimento
@@ -1368,7 +1368,7 @@ def experiments():
 
     # Heli2DOF
     raw_heli = Image.open("Heli2DOF2.jpg")
-    raw_heli = raw_heli.resize((150, 150), Image.ANTIALIAS)
+    raw_heli = raw_heli.resize((150, 150), Image.Resampling.LANCZOS)
     global img_heli
     img_heli = ImageTk.PhotoImage(raw_heli)
 
@@ -1392,7 +1392,7 @@ def experiments():
 
     # PAMH
     raw_pamh = Image.open("Pamh.jpg")
-    raw_pamh = raw_pamh.resize((150, 150), Image.ANTIALIAS)
+    raw_pamh = raw_pamh.resize((150, 150), Image.Resampling.LANCZOS)
     global img_pamh
     img_pamh = ImageTk.PhotoImage(raw_pamh)
 
@@ -1416,7 +1416,7 @@ def experiments():
 
     # Ball&Beam
     raw_bb = Image.open("Ball&Beam.jpg")
-    raw_bb = raw_bb.resize((200, 150), Image.ANTIALIAS)
+    raw_bb = raw_bb.resize((200, 150), Image.Resampling.LANCZOS)
     global img_bb
     img_bb = ImageTk.PhotoImage(raw_bb)
 
@@ -1440,7 +1440,7 @@ def experiments():
 
     # Grua
     raw_grua = Image.open("Grua.jpg")
-    raw_grua = raw_grua.resize((200, 150), Image.ANTIALIAS)
+    raw_grua = raw_grua.resize((200, 150), Image.Resampling.LANCZOS)
     global img_grua
     img_grua = ImageTk.PhotoImage(raw_grua)
 
@@ -1464,7 +1464,7 @@ def experiments():
 
     # MotorCD
     raw_motor = Image.open("MotorCD.jpg")
-    raw_motor = raw_motor.resize((150, 150), Image.ANTIALIAS)
+    raw_motor = raw_motor.resize((150, 150), Image.Resampling.LANCZOS)
     global img_motor
     img_motor = ImageTk.PhotoImage(raw_motor)
 
@@ -1488,7 +1488,7 @@ def experiments():
 
     # Nuevos experimentos
     raw_otro = Image.open("Otro.png")
-    raw_otro = raw_otro.resize((150, 150), Image.ANTIALIAS)
+    raw_otro = raw_otro.resize((150, 150), Image.Resampling.LANCZOS)
     global img_otro
     img_otro = ImageTk.PhotoImage(raw_otro)
 
@@ -2348,7 +2348,8 @@ def estructura():
                 cancelar_Borrar(None)
 
             if lista_Linea.tamano() > 0:
-
+                #lista_FT.inspeccionar_nodo_FT()
+                print("La lista FT esta vacia? " + str(lista_FT.estaVacia()))
                 a = Netlist.Netlist()
                 a.listas(tupla_listas)
                 a.generarNetlist()
@@ -2369,17 +2370,16 @@ def estructura():
                         while trama:
 
                             dispositivo.write(trama.strip().encode())
-
+                            #print("Test")
                             lectura = dispositivo.readline()
 
                             if lectura:
-
+                             #   print("Test1")
                                 lectura = lectura.rstrip("\n".encode()).decode()
                                 mensajeEnviado = mensajeEnviado + lectura
-
+                              #  print("Test2")
                                 if lectura == "S":
                                     pass
-
                                 elif lectura == "E":
                                     messagebox.showerror(
                                         "Error", "Error en la comunicación"
@@ -2392,7 +2392,7 @@ def estructura():
                                     )
                                     dispositivo.close()
                                     return None
-
+                            #print("Test3")
                             trama = fp.readline()
 
                         dispositivo.close()
@@ -3415,13 +3415,13 @@ def expProgreso():
         imagenRecibida = "verRecibido2.png"
 
     abrir_PLANTA = Image.open(imagenPlanta)
-    abrir_PLANTA = abrir_PLANTA.resize((150, 150), Image.ANTIALIAS)
+    abrir_PLANTA = abrir_PLANTA.resize((150, 150), Image.Resampling.LANCZOS)
     global img_PLANTA
     img_PLANTA = ImageTk.PhotoImage(abrir_PLANTA)
 
     # Importando la imagen que representa a PASCAL
     abrir_PASCAL = Image.open(imagenChip)
-    abrir_PASCAL = abrir_PASCAL.resize((150, 150), Image.ANTIALIAS)
+    abrir_PASCAL = abrir_PASCAL.resize((150, 150), Image.Resampling.LANCZOS)
     global img_PASCAL
     img_PASCAL = ImageTk.PhotoImage(abrir_PASCAL)
 
@@ -3474,12 +3474,12 @@ def expProgreso():
     frm_data.rowconfigure(1, weight=1)
 
     abrir_ENVIADOS = Image.open(imagenEnviada)
-    abrir_ENVIADOS = abrir_ENVIADOS.resize((150, 50), Image.ANTIALIAS)
+    abrir_ENVIADOS = abrir_ENVIADOS.resize((150, 50), Image.Resampling.LANCZOS)
     global img_ENVIADOS
     img_ENVIADOS = ImageTk.PhotoImage(abrir_ENVIADOS)
 
     abrir_RECIBIDOS = Image.open(imagenRecibida)
-    abrir_RECIBIDOS = abrir_RECIBIDOS.resize((150, 50), Image.ANTIALIAS)
+    abrir_RECIBIDOS = abrir_RECIBIDOS.resize((150, 50), Image.Resampling.LANCZOS)
     global img_RECIBIDOS
     img_RECIBIDOS = ImageTk.PhotoImage(abrir_RECIBIDOS)
 

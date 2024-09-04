@@ -738,6 +738,12 @@ class ListaFT:
         temp.window.tag_bind(temp.nombre, "<Motion>", temp.sobreIcono)
         temp.window.tag_bind(temp.nombre, "<Enter>", temp.dentroDelIcono)
         temp.window.tag_bind(temp.nombre, "<Leave>", temp.afueraDelIcono)
+    
+    def inspeccionar_nodo_FT(self):
+        if self.cabeza is not None:
+            print(self.cabeza.__dict__)
+        else:
+            print("La lista está vacía")
 
     def abrirArchivo(self, tupla_listas, nombre, x, y):
 
