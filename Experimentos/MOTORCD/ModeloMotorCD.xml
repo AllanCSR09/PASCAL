@@ -1,76 +1,16 @@
 <?xml version='1.0' encoding='utf-8'?>
 <Laboratorio_Control_Automatico>
 	<Configuracion>
-		<Dispositivo>COM1</Dispositivo>
+		<Dispositivo>COM3</Dispositivo>
 		<Velocidad>115200</Velocidad>
 		<Tiempo_Muestreo>20</Tiempo_Muestreo>
 		<Numero_Muestras>1000</Numero_Muestras>
 	</Configuracion>
 	<Linea>
-		<Nombre>Linea_14</Nombre>
-		<Bloque_Inicio>SALP_1</Bloque_Inicio>
-		<Bloque_Fin>ADC_0</Bloque_Fin>
-		<Nodos>[78, 62, 94, 62, 94, 62, 117, 62]</Nodos>
-	</Linea>
-	<Linea>
-		<Nombre>Linea_0</Nombre>
-		<Bloque_Inicio>TRAPECIO_0</Bloque_Inicio>
-		<Bloque_Fin>SUM_0</Bloque_Fin>
-		<Nodos>[181, 150, 231, 150, 231, 150, 280, 150]</Nodos>
-	</Linea>
-	<Linea>
-		<Nombre>Linea_1</Nombre>
-		<Bloque_Inicio>TRAPECIO_1</Bloque_Inicio>
-		<Bloque_Fin>SUM_0</Bloque_Fin>
-		<Nodos>[177, 234, 229, 234, 229, 176, 280, 176]</Nodos>
-	</Linea>
-	<Linea>
-		<Nombre>Linea_2</Nombre>
-		<Bloque_Inicio>SUM_0</Bloque_Inicio>
-		<Bloque_Fin>SUM_1</Bloque_Fin>
-		<Nodos>[344, 163, 365, 163, 365, 240, 385, 240]</Nodos>
-	</Linea>
-	<Linea>
-		<Nombre>Linea_3</Nombre>
-		<Bloque_Inicio>TRAPECIO_2</Bloque_Inicio>
-		<Bloque_Fin>SUM_1</Bloque_Fin>
-		<Nodos>[177, 319, 279, 319, 279, 266, 385, 266]</Nodos>
-	</Linea>
-	<Linea>
-		<Nombre>Linea_4</Nombre>
-		<Bloque_Inicio>SUM_1</Bloque_Inicio>
-		<Bloque_Fin>SCOPE_0</Bloque_Fin>
-		<Nodos>[449, 253, 466, 253, 466, 253, 484, 253]</Nodos>
-	</Linea>
-	<Linea>
-		<Nombre>Linea_5</Nombre>
-		<Bloque_Inicio>SAT_0</Bloque_Inicio>
-		<Bloque_Fin>DAC_0</Bloque_Fin>
-		<Nodos>[650, 253, 666, 253, 666, 253, 682, 253]</Nodos>
-	</Linea>
-	<Linea>
-		<Nombre>Linea_6</Nombre>
-		<Bloque_Inicio>SCOPE_0</Bloque_Inicio>
-		<Bloque_Fin>SAT_0</Bloque_Fin>
-		<Nodos>[548, 253, 567, 253, 567, 253, 586, 253]</Nodos>
-	</Linea>
-	<Linea>
-		<Nombre>Linea_9</Nombre>
-		<Bloque_Inicio>DAC_0</Bloque_Inicio>
-		<Bloque_Fin>ENTP_0</Bloque_Fin>
-		<Nodos>[746, 253, 763, 253, 763, 253, 780, 253]</Nodos>
-	</Linea>
-	<Linea>
-		<Nombre>Linea_11</Nombre>
-		<Bloque_Inicio>ADC_1</Bloque_Inicio>
-		<Bloque_Fin>SCOPE_2</Bloque_Fin>
-		<Nodos>[174, 498, 194, 498, 194, 498, 215, 498]</Nodos>
-	</Linea>
-	<Linea>
-		<Nombre>Linea_8</Nombre>
-		<Bloque_Inicio>SCOPE_2</Bloque_Inicio>
-		<Bloque_Fin>PWM_1</Bloque_Fin>
-		<Nodos>[279, 498, 313, 498, 313, 498, 347, 498]</Nodos>
+		<Nombre>Linea_10</Nombre>
+		<Bloque_Inicio>SCOPE_1</Bloque_Inicio>
+		<Bloque_Fin>PWM_0</Bloque_Fin>
+		<Nodos>[288, 62, 312, 62, 312, 61, 338, 61]</Nodos>
 	</Linea>
 	<Linea>
 		<Nombre>Linea_7</Nombre>
@@ -79,21 +19,71 @@
 		<Nodos>[181, 62, 202, 62, 202, 62, 224, 62]</Nodos>
 	</Linea>
 	<Linea>
-		<Nombre>Linea_10</Nombre>
-		<Bloque_Inicio>SCOPE_1</Bloque_Inicio>
-		<Bloque_Fin>PWM_0</Bloque_Fin>
-		<Nodos>[288, 62, 312, 62, 312, 61, 338, 61]</Nodos>
+		<Nombre>Linea_8</Nombre>
+		<Bloque_Inicio>SCOPE_2</Bloque_Inicio>
+		<Bloque_Fin>PWM_1</Bloque_Fin>
+		<Nodos>[279, 498, 313, 498, 313, 498, 347, 498]</Nodos>
 	</Linea>
-	<ADC>
-		<Nombre>ADC_0</Nombre>
-		<Posicion_X>149</Posicion_X>
-		<Posicion_Y>63</Posicion_Y>
-		<Entrada_1>Linea_14</Entrada_1>
-		<Salida_1>Linea_7</Salida_1>
-		<Variable_Rango>7</Variable_Rango>
-		<Variable_Tiempo_Muestreo>10</Variable_Tiempo_Muestreo>
-		<Variable_Ganancia>0.5</Variable_Ganancia>
-	</ADC>
+	<Linea>
+		<Nombre>Linea_11</Nombre>
+		<Bloque_Inicio>ADC_1</Bloque_Inicio>
+		<Bloque_Fin>SCOPE_2</Bloque_Fin>
+		<Nodos>[174, 498, 194, 498, 194, 498, 215, 498]</Nodos>
+	</Linea>
+	<Linea>
+		<Nombre>Linea_9</Nombre>
+		<Bloque_Inicio>DAC_0</Bloque_Inicio>
+		<Bloque_Fin>ENTP_0</Bloque_Fin>
+		<Nodos>[746, 253, 763, 253, 763, 253, 780, 253]</Nodos>
+	</Linea>
+	<Linea>
+		<Nombre>Linea_6</Nombre>
+		<Bloque_Inicio>SCOPE_0</Bloque_Inicio>
+		<Bloque_Fin>SAT_0</Bloque_Fin>
+		<Nodos>[548, 253, 567, 253, 567, 253, 586, 253]</Nodos>
+	</Linea>
+	<Linea>
+		<Nombre>Linea_5</Nombre>
+		<Bloque_Inicio>SAT_0</Bloque_Inicio>
+		<Bloque_Fin>DAC_0</Bloque_Fin>
+		<Nodos>[650, 253, 666, 253, 666, 253, 682, 253]</Nodos>
+	</Linea>
+	<Linea>
+		<Nombre>Linea_4</Nombre>
+		<Bloque_Inicio>SUM_1</Bloque_Inicio>
+		<Bloque_Fin>SCOPE_0</Bloque_Fin>
+		<Nodos>[449, 253, 466, 253, 466, 253, 484, 253]</Nodos>
+	</Linea>
+	<Linea>
+		<Nombre>Linea_3</Nombre>
+		<Bloque_Inicio>TRAPECIO_2</Bloque_Inicio>
+		<Bloque_Fin>SUM_1</Bloque_Fin>
+		<Nodos>[177, 319, 279, 319, 279, 266, 385, 266]</Nodos>
+	</Linea>
+	<Linea>
+		<Nombre>Linea_2</Nombre>
+		<Bloque_Inicio>SUM_0</Bloque_Inicio>
+		<Bloque_Fin>SUM_1</Bloque_Fin>
+		<Nodos>[344, 163, 365, 163, 365, 240, 385, 240]</Nodos>
+	</Linea>
+	<Linea>
+		<Nombre>Linea_1</Nombre>
+		<Bloque_Inicio>TRAPECIO_1</Bloque_Inicio>
+		<Bloque_Fin>SUM_0</Bloque_Fin>
+		<Nodos>[177, 234, 229, 234, 229, 176, 280, 176]</Nodos>
+	</Linea>
+	<Linea>
+		<Nombre>Linea_0</Nombre>
+		<Bloque_Inicio>TRAPECIO_0</Bloque_Inicio>
+		<Bloque_Fin>SUM_0</Bloque_Fin>
+		<Nodos>[181, 150, 231, 150, 231, 150, 280, 150]</Nodos>
+	</Linea>
+	<Linea>
+		<Nombre>Linea_14</Nombre>
+		<Bloque_Inicio>SALP_1</Bloque_Inicio>
+		<Bloque_Fin>ADC_0</Bloque_Fin>
+		<Nodos>[78, 62, 94, 62, 94, 62, 117, 62]</Nodos>
+	</Linea>
 	<ADC>
 		<Nombre>ADC_1</Nombre>
 		<Posicion_X>142</Posicion_X>
@@ -104,16 +94,16 @@
 		<Variable_Tiempo_Muestreo>10</Variable_Tiempo_Muestreo>
 		<Variable_Ganancia>0.1</Variable_Ganancia>
 	</ADC>
-	<PWM>
-		<Nombre>PWM_0</Nombre>
-		<Posicion_X>370</Posicion_X>
-		<Posicion_Y>62</Posicion_Y>
-		<Entrada_1>Linea_10</Entrada_1>
-		<Salida_1 />
-		<Variable_Tipo>0</Variable_Tipo>
-		<Variable_Periodo>500</Variable_Periodo>
-		<Variable_Amplitud>1</Variable_Amplitud>
-	</PWM>
+	<ADC>
+		<Nombre>ADC_0</Nombre>
+		<Posicion_X>149</Posicion_X>
+		<Posicion_Y>63</Posicion_Y>
+		<Entrada_1>Linea_14</Entrada_1>
+		<Salida_1>Linea_7</Salida_1>
+		<Variable_Rango>7</Variable_Rango>
+		<Variable_Tiempo_Muestreo>10</Variable_Tiempo_Muestreo>
+		<Variable_Ganancia>0.5</Variable_Ganancia>
+	</ADC>
 	<PWM>
 		<Nombre>PWM_1</Nombre>
 		<Posicion_X>379</Posicion_X>
@@ -124,6 +114,28 @@
 		<Variable_Periodo>500</Variable_Periodo>
 		<Variable_Amplitud>1</Variable_Amplitud>
 	</PWM>
+	<PWM>
+		<Nombre>PWM_0</Nombre>
+		<Posicion_X>370</Posicion_X>
+		<Posicion_Y>62</Posicion_Y>
+		<Entrada_1>Linea_10</Entrada_1>
+		<Salida_1 />
+		<Variable_Tipo>0</Variable_Tipo>
+		<Variable_Periodo>500</Variable_Periodo>
+		<Variable_Amplitud>1</Variable_Amplitud>
+	</PWM>
+	<FT>
+		<Nombre>FT_1</Nombre>
+		<Tipo_FT>FT_1x1</Tipo_FT>
+		<Posicion_X>542</Posicion_X>
+		<Posicion_Y>490</Posicion_Y>
+		<Entrada_1 />
+		<Entrada_2 />
+		<Salida_1 />
+		<Variable_Orden>1</Variable_Orden>
+		<Variable_Numerador>[0, 3]</Variable_Numerador>
+		<Variable_Denominador>[2]</Variable_Denominador>
+	</FT>
 	<FT>
 		<Nombre>FT_0</Nombre>
 		<Tipo_FT>FT_1x1</Tipo_FT>
@@ -170,12 +182,12 @@
 		<Variable_Ganancia>1.0058</Variable_Ganancia>
 	</DAC>
 	<SCOPE>
-		<Nombre>SCOPE_0</Nombre>
-		<Posicion_X>516</Posicion_X>
-		<Posicion_Y>254</Posicion_Y>
-		<Entrada_1>Linea_4</Entrada_1>
-		<Salida_1>Linea_6</Salida_1>
-		<Variable_Nombre_Bloque>ENTRADA</Variable_Nombre_Bloque>
+		<Nombre>SCOPE_2</Nombre>
+		<Posicion_X>247</Posicion_X>
+		<Posicion_Y>499</Posicion_Y>
+		<Entrada_1>Linea_11</Entrada_1>
+		<Salida_1>Linea_8</Salida_1>
+		<Variable_Nombre_Bloque>CORRIENTE</Variable_Nombre_Bloque>
 	</SCOPE>
 	<SCOPE>
 		<Nombre>SCOPE_1</Nombre>
@@ -186,22 +198,22 @@
 		<Variable_Nombre_Bloque>VELOCIDAD</Variable_Nombre_Bloque>
 	</SCOPE>
 	<SCOPE>
-		<Nombre>SCOPE_2</Nombre>
-		<Posicion_X>247</Posicion_X>
-		<Posicion_Y>499</Posicion_Y>
-		<Entrada_1>Linea_11</Entrada_1>
-		<Salida_1>Linea_8</Salida_1>
-		<Variable_Nombre_Bloque>CORRIENTE</Variable_Nombre_Bloque>
+		<Nombre>SCOPE_0</Nombre>
+		<Posicion_X>516</Posicion_X>
+		<Posicion_Y>254</Posicion_Y>
+		<Entrada_1>Linea_4</Entrada_1>
+		<Salida_1>Linea_6</Salida_1>
+		<Variable_Nombre_Bloque>ENTRADA</Variable_Nombre_Bloque>
 	</SCOPE>
 	<TRAPECIO>
-		<Nombre>TRAPECIO_0</Nombre>
-		<Posicion_X>149</Posicion_X>
-		<Posicion_Y>151</Posicion_Y>
-		<Salida_1>Linea_0</Salida_1>
-		<Variable_Amplitud>3</Variable_Amplitud>
-		<Variable_Tiempo_Inicio>0.5</Variable_Tiempo_Inicio>
+		<Nombre>TRAPECIO_2</Nombre>
+		<Posicion_X>145</Posicion_X>
+		<Posicion_Y>320</Posicion_Y>
+		<Salida_1>Linea_3</Salida_1>
+		<Variable_Amplitud>3.0</Variable_Amplitud>
+		<Variable_Tiempo_Inicio>7.5</Variable_Tiempo_Inicio>
 		<Variable_Tiempo_Rampa>0</Variable_Tiempo_Rampa>
-		<Variable_Tiempo_Alto>1.5</Variable_Tiempo_Alto>
+		<Variable_Tiempo_Alto>1</Variable_Tiempo_Alto>
 	</TRAPECIO>
 	<TRAPECIO>
 		<Nombre>TRAPECIO_1</Nombre>
@@ -214,23 +226,15 @@
 		<Variable_Tiempo_Alto>2.5</Variable_Tiempo_Alto>
 	</TRAPECIO>
 	<TRAPECIO>
-		<Nombre>TRAPECIO_2</Nombre>
-		<Posicion_X>145</Posicion_X>
-		<Posicion_Y>320</Posicion_Y>
-		<Salida_1>Linea_3</Salida_1>
-		<Variable_Amplitud>3.0</Variable_Amplitud>
-		<Variable_Tiempo_Inicio>7.5</Variable_Tiempo_Inicio>
+		<Nombre>TRAPECIO_0</Nombre>
+		<Posicion_X>149</Posicion_X>
+		<Posicion_Y>151</Posicion_Y>
+		<Salida_1>Linea_0</Salida_1>
+		<Variable_Amplitud>3</Variable_Amplitud>
+		<Variable_Tiempo_Inicio>0.5</Variable_Tiempo_Inicio>
 		<Variable_Tiempo_Rampa>0</Variable_Tiempo_Rampa>
-		<Variable_Tiempo_Alto>1</Variable_Tiempo_Alto>
+		<Variable_Tiempo_Alto>1.5</Variable_Tiempo_Alto>
 	</TRAPECIO>
-	<SUM>
-		<Nombre>SUM_0</Nombre>
-		<Posicion_X>312</Posicion_X>
-		<Posicion_Y>164</Posicion_Y>
-		<Entrada_1>Linea_0</Entrada_1>
-		<Entrada_2>Linea_1</Entrada_2>
-		<Salida_1>Linea_2</Salida_1>
-	</SUM>
 	<SUM>
 		<Nombre>SUM_1</Nombre>
 		<Posicion_X>417</Posicion_X>
@@ -238,5 +242,13 @@
 		<Entrada_1>Linea_2</Entrada_1>
 		<Entrada_2>Linea_3</Entrada_2>
 		<Salida_1>Linea_4</Salida_1>
+	</SUM>
+	<SUM>
+		<Nombre>SUM_0</Nombre>
+		<Posicion_X>312</Posicion_X>
+		<Posicion_Y>164</Posicion_Y>
+		<Entrada_1>Linea_0</Entrada_1>
+		<Entrada_2>Linea_1</Entrada_2>
+		<Salida_1>Linea_2</Salida_1>
 	</SUM>
 </Laboratorio_Control_Automatico>
