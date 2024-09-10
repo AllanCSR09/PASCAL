@@ -205,18 +205,22 @@ class Netlist():
 
                     if actual.tipo == "FT":
                         print("Estoy escribiendo ahora los datos del tipo: " + str(actual.tipoNetlist))
+                        print("Soy la funcion de transferencia numero: " + str(actual.dato))
                         if actual.tipoFT == "FT_1x1":
                             print("El tipo de FT es: " + str(actual.tipoFT))
-                            print("Los datos del modulo FT es: " + str(actual.dato))
+                            print("Escribiendo ahora el ordinal del tipo con '00'")
                             self.imprimirConfig(actual.tipoNetlist, actual.dato, "00", "0")
+
                         else:
                             print("El tipo de FT es: " + str(actual.tipoFT))
-                            print("Los datos del modulo FT es: " + str(actual.dato))
+                            print("Escribiendo ahora el ordinal del tipo con '00'")
                             self.imprimirConfig(actual.tipoNetlist, actual.dato, "00", "1")
+                        
+                        print("Escribiendo ahora el ordinal del orden con '01'")
                         print("El modulo FT es de orden: " + str(actual.variable_orden))
                         self.imprimirConfig(actual.tipoNetlist, actual.dato, "01",  actual.variable_orden)
-
-
+                        
+                        print("Escribiendo ahora el ordinal del numerador con '02'")
                         print("La variable del numerador es: " + str(actual.variable_numerador))
                         variable = str(actual.variable_numerador)
                         variable = list(variable)
@@ -236,9 +240,10 @@ class Netlist():
 
                         variable = "".join(variable)
 
+
                         self.imprimirConfig(actual.tipoNetlist, actual.dato, "02",  variable)
 
-
+                        print("Escribiendo ahora el ordinal del denominador con '03'")
                         print("La variable del denominador es: " + str(actual.variable_denominador))
                         variable = str(actual.variable_denominador)
                         variable = list(variable)
@@ -258,6 +263,180 @@ class Netlist():
                         variable = "".join(variable)
 
                         self.imprimirConfig(actual.tipoNetlist, actual.dato, "03",  variable)
+
+                    if actual.tipo == "PFT":
+
+                        print("Estoy escribiendo ahora los datos del tipo: " + str(actual.tipoNetlist))
+                        print("Soy la planta de funcion de transferencia numero: " + str(actual.dato))
+
+                        if actual.tipoPFT == "PFT_1x1":
+                            print("El tipo de PFT es: " + str(actual.tipoPFT))
+                            print("Escribiendo ahora el ordinal del tipo con '00'")
+                            self.imprimirConfig(actual.tipoNetlist, actual.dato, "00", "0")
+
+                            print("Escribiendo ahora el ordinal del orden con '01'")
+                            print("El modulo PFT es de orden: " + str(actual.variable_orden))
+                            self.imprimirConfig(actual.tipoNetlist, actual.dato, "01",  actual.variable_orden)
+                        
+                            print("Escribiendo ahora el ordinal del numerador con '02'")
+                            print("La variable del numerador es: " + str(actual.variable_numerador))
+                            variable = str(actual.variable_numerador)
+                            variable = list(variable)
+
+                            posicion = []
+                            for i in range(0, len(variable)):
+                                if variable[i] == " ":
+                                    posicion.append(i)
+
+                            if posicion != []:
+
+                                posicion.reverse()
+
+                                for i in posicion:
+
+                                    del variable[i]
+
+                            variable = "".join(variable)
+
+
+                            self.imprimirConfig(actual.tipoNetlist, actual.dato, "02",  variable)
+
+                            print("Escribiendo ahora el ordinal del denominador con '03'")
+                            print("La variable del denominador es: " + str(actual.variable_denominador))
+                            variable = str(actual.variable_denominador)
+                            variable = list(variable)
+
+                            posicion = []
+                            for i in range(0, len(variable)):
+                                if variable[i] == " ":
+                                    posicion.append(i)
+
+                            if posicion != []:
+
+                                posicion.reverse()
+
+                                for i in posicion:
+                                    del variable[i]
+
+                            variable = "".join(variable)
+
+                            self.imprimirConfig(actual.tipoNetlist, actual.dato, "03",  variable)
+                        
+                        else:
+
+                            if actual.tipoPFT == "PFT_1x2":
+                                print("El tipo de PFT es: " + str(actual.tipoPFT))
+                                print("Escribiendo ahora el ordinal del tipo con '00'")
+                                self.imprimirConfig(actual.tipoNetlist, actual.dato, "00", "1")
+
+                            elif actual.tipoPFT == "PFT_2x1":
+                                print("El tipo de PFT es: " + str(actual.tipoPFT))
+                                print("Escribiendo ahora el ordinal del tipo con '00'")
+                                self.imprimirConfig(actual.tipoNetlist, actual.dato, "00", "2")
+
+                            else:
+                                print("El tipo de PFT es: " + str(actual.tipoPFT))
+                                print("Escribiendo ahora el ordinal del tipo con '00'")
+                                self.imprimirConfig(actual.tipoNetlist, actual.dato, "00", "3")
+
+                            print("Escribiendo ahora el ordinal del orden con '01'")
+                            print("El modulo PFT es de orden: " + str(actual.variable_orden))
+                            self.imprimirConfig(actual.tipoNetlist, actual.dato, "01",  actual.variable_orden)
+                        
+                            print("Escribiendo ahora el ordinal del numerador con '02'")
+                            print("La variable del numerador es: " + str(actual.variable_numerador))
+                            variable = str(actual.variable_numerador)
+                            variable = list(variable)
+
+                            posicion = []
+                            for i in range(0, len(variable)):
+                                if variable[i] == " ":
+                                    posicion.append(i)
+
+                            if posicion != []:
+
+                                posicion.reverse()
+
+                                for i in posicion:
+
+                                    del variable[i]
+
+                            variable = "".join(variable)
+
+
+                            self.imprimirConfig(actual.tipoNetlist, actual.dato, "02",  variable)
+
+                            print("Escribiendo ahora el ordinal del denominador con '03'")
+                            print("La variable del denominador es: " + str(actual.variable_denominador))
+                            variable = str(actual.variable_denominador)
+                            variable = list(variable)
+
+                            posicion = []
+                            for i in range(0, len(variable)):
+                                if variable[i] == " ":
+                                    posicion.append(i)
+
+                            if posicion != []:
+
+                                posicion.reverse()
+
+                                for i in posicion:
+                                    del variable[i]
+
+                            variable = "".join(variable)
+
+                            self.imprimirConfig(actual.tipoNetlist, actual.dato, "03",  variable)
+
+                            #------------------------------------------------------------------------
+
+                            print("Escribiendo ahora el ordinal del orden 2 con '04'")
+                            print("El modulo PFT es de orden: " + str(actual.variable_orden2))
+                            self.imprimirConfig(actual.tipoNetlist, actual.dato, "04",  actual.variable_orden2)
+                        
+                            print("Escribiendo ahora el ordinal del numerador 2 con '05'")
+                            print("La variable del numerador es: " + str(actual.variable_numerador2))
+                            variable = str(actual.variable_numerador2)
+                            variable = list(variable)
+
+                            posicion = []
+                            for i in range(0, len(variable)):
+                                if variable[i] == " ":
+                                    posicion.append(i)
+
+                            if posicion != []:
+
+                                posicion.reverse()
+
+                                for i in posicion:
+
+                                    del variable[i]
+
+                            variable = "".join(variable)
+
+
+                            self.imprimirConfig(actual.tipoNetlist, actual.dato, "05",  variable)
+
+                            print("Escribiendo ahora el ordinal del denominador 2 con '06'")
+                            print("La variable del denominador es: " + str(actual.variable_denominador2))
+                            variable = str(actual.variable_denominador2)
+                            variable = list(variable)
+
+                            posicion = []
+                            for i in range(0, len(variable)):
+                                if variable[i] == " ":
+                                    posicion.append(i)
+
+                            if posicion != []:
+
+                                posicion.reverse()
+
+                                for i in posicion:
+                                    del variable[i]
+
+                            variable = "".join(variable)
+
+                            self.imprimirConfig(actual.tipoNetlist, actual.dato, "06",  variable)
+
 
                     if actual.tipo == "SAT":
 
