@@ -84,6 +84,18 @@
 		<Bloque_Fin>ADC_0</Bloque_Fin>
 		<Nodos>[78, 62, 94, 62, 94, 62, 117, 62]</Nodos>
 	</Linea>
+	<Linea>
+		<Nombre>Linea_13</Nombre>
+		<Bloque_Inicio>TRAPECIO_4</Bloque_Inicio>
+		<Bloque_Fin>FT_0</Bloque_Fin>
+		<Nodos>[395, 394, 449, 394, 449, 379, 519, 379]</Nodos>
+	</Linea>
+	<Linea>
+		<Nombre>Linea_16</Nombre>
+		<Bloque_Inicio>TRAPECIO_6</Bloque_Inicio>
+		<Bloque_Fin>FT_0</Bloque_Fin>
+		<Nodos>[386, 302, 476, 302, 476, 353, 519, 353]</Nodos>
+	</Linea>
 	<ADC>
 		<Nombre>ADC_1</Nombre>
 		<Posicion_X>142</Posicion_X>
@@ -125,28 +137,16 @@
 		<Variable_Amplitud>1</Variable_Amplitud>
 	</PWM>
 	<FT>
-		<Nombre>FT_1</Nombre>
-		<Tipo_FT>FT_1x1</Tipo_FT>
-		<Posicion_X>542</Posicion_X>
-		<Posicion_Y>490</Posicion_Y>
-		<Entrada_1 />
-		<Entrada_2 />
+		<Nombre>FT_0</Nombre>
+		<Tipo_FT>FT_2x1</Tipo_FT>
+		<Posicion_X>551</Posicion_X>
+		<Posicion_Y>367</Posicion_Y>
+		<Entrada_1>Linea_16</Entrada_1>
+		<Entrada_2>Linea_13</Entrada_2>
 		<Salida_1 />
 		<Variable_Orden>1</Variable_Orden>
-		<Variable_Numerador>[0, 3]</Variable_Numerador>
+		<Variable_Numerador>[0, 1]</Variable_Numerador>
 		<Variable_Denominador>[2]</Variable_Denominador>
-	</FT>
-	<FT>
-		<Nombre>FT_0</Nombre>
-		<Tipo_FT>FT_1x1</Tipo_FT>
-		<Posicion_X>542</Posicion_X>
-		<Posicion_Y>394</Posicion_Y>
-		<Entrada_1 />
-		<Entrada_2 />
-		<Salida_1 />
-		<Variable_Orden>2</Variable_Orden>
-		<Variable_Numerador>[1, 2, 3]</Variable_Numerador>
-		<Variable_Denominador>[1, 2]</Variable_Denominador>
 	</FT>
 	<SAT>
 		<Nombre>SAT_0</Nombre>
@@ -206,6 +206,16 @@
 		<Variable_Nombre_Bloque>ENTRADA</Variable_Nombre_Bloque>
 	</SCOPE>
 	<TRAPECIO>
+		<Nombre>TRAPECIO_4</Nombre>
+		<Posicion_X>363</Posicion_X>
+		<Posicion_Y>395</Posicion_Y>
+		<Salida_1>Linea_13</Salida_1>
+		<Variable_Amplitud>1</Variable_Amplitud>
+		<Variable_Tiempo_Inicio>1</Variable_Tiempo_Inicio>
+		<Variable_Tiempo_Rampa>2</Variable_Tiempo_Rampa>
+		<Variable_Tiempo_Alto>5</Variable_Tiempo_Alto>
+	</TRAPECIO>
+	<TRAPECIO>
 		<Nombre>TRAPECIO_2</Nombre>
 		<Posicion_X>145</Posicion_X>
 		<Posicion_Y>320</Posicion_Y>
@@ -234,6 +244,16 @@
 		<Variable_Tiempo_Inicio>0.5</Variable_Tiempo_Inicio>
 		<Variable_Tiempo_Rampa>0</Variable_Tiempo_Rampa>
 		<Variable_Tiempo_Alto>1.5</Variable_Tiempo_Alto>
+	</TRAPECIO>
+	<TRAPECIO>
+		<Nombre>TRAPECIO_6</Nombre>
+		<Posicion_X>354</Posicion_X>
+		<Posicion_Y>303</Posicion_Y>
+		<Salida_1>Linea_16</Salida_1>
+		<Variable_Amplitud>1</Variable_Amplitud>
+		<Variable_Tiempo_Inicio>1</Variable_Tiempo_Inicio>
+		<Variable_Tiempo_Rampa>2</Variable_Tiempo_Rampa>
+		<Variable_Tiempo_Alto>5</Variable_Tiempo_Alto>
 	</TRAPECIO>
 	<SUM>
 		<Nombre>SUM_1</Nombre>

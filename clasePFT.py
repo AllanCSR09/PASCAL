@@ -1025,7 +1025,7 @@ class NodoPFT:
                 # -------------------------- 1 Salida --------------------------
                 if self.tipoPFT == "PFT_1x1" or self.tipoPFT == "PFT_2x1":
 
-                    if 38 > self.dx > 28 and 6 > abs(self.dy):  # Salida_1 RE
+                    if 38 > self.dx > 28 and 6 > abs(self.dy):  # Salida_1 PFT
 
                         if (
                             self.creandoLinea is not None
@@ -1048,7 +1048,7 @@ class NodoPFT:
                 # -------------------------- 2 Salidas --------------------------
                 if self.tipoPFT == "PFT_1x2" or self.tipoPFT == "PFT_2x2":
 
-                    if 38 > self.dx > 28 and -19 < self.dy < -7:  # Salida_1 RE
+                    if 38 > self.dx > 28 and -19 < self.dy < -7:  # Salida_1 PFT
 
                         if (
                             self.creandoLinea is not None
@@ -1068,7 +1068,7 @@ class NodoPFT:
                             )  # Nueva Conexion
                             self.salida_1 = self.creandoLinea
 
-                    if 38 > self.dx > 28 and 19 > self.dy > 7:  # Salida_2 RE
+                    if 38 > self.dx > 28 and 19 > self.dy > 7:  # Salida_2 PFT
 
                         if (
                             self.creandoLinea is not None
@@ -1090,8 +1090,8 @@ class NodoPFT:
 
                 # -------------------------- 1 Entrada --------------------------
                 if self.tipoPFT == "PFT_1x1" or self.tipoPFT == "PFT_1x2":
-
-                    if -38 < self.dx < -28 and -19 < self.dy < -7:  # Entrada_1 RE
+                    """"
+                    if -38 < self.dx < -28 and -19 < self.dy < -7:  # Entrada_1 PFT
 
                         if (
                             self.creandoLinea is not None
@@ -1110,27 +1110,27 @@ class NodoPFT:
                                 self.tupla_listas, self.nombre, coord, False
                             )
                             self.entrada_1 = self.creandoLinea
-
-                    if -38 < self.dx < -28 and -6 < self.dy < 6:  # Entrada_2 RE
+                    """
+                    if -38 < self.dx < -28 and -6 < self.dy < 6:  # Entrada_1 PFT
 
                         if (
                             self.creandoLinea is not None
-                            and self.entrada_2 is None
+                            and self.entrada_1 is None
                             and self.tipoCreandoLinea
                         ):
                             tupla = (self.posicionx - 32, self.posiciony - 1)
-                            self.entrada_2 = self.creandoLinea
+                            self.entrada_1 = self.creandoLinea
                             self.tupla_listas[2].ultimoNodo(
                                 self.creandoLinea, self.nombre, tupla
                             )
 
-                        if self.creandoLinea is None and self.entrada_2 is None:
+                        if self.creandoLinea is None and self.entrada_1 is None:
                             coord = [self.posicionx - 32, self.posiciony - 1]
                             self.tupla_listas[2].agregar(
                                 self.tupla_listas, self.nombre, coord, False
                             )
-                            self.entrada_2 = self.creandoLinea
-
+                            self.entrada_1 = self.creandoLinea
+                    
                 # -------------------------- 2 Entradas --------------------------
                 if self.tipoPFT == "PFT_2x1" or self.tipoPFT == "PFT_2x2":
 
