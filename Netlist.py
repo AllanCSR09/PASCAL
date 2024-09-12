@@ -563,6 +563,11 @@ class Netlist():
             if tipo_bInicio == "SUM": self.file.write("1,")
             if tipo_bInicio == "REST": self.file.write("1,")
 
+            if tipo_bInicio == "PFT":
+
+                if bInicio.salida_1 == actual.nombre: self.file.write("1,")
+                if bInicio.salida_2 == actual.nombre: self.file.write("2,")
+            
             self.file.write(str(bFin.tipoNetlist) + ",")
             self.file.write(str(bFin.dato) + ",")
 
@@ -607,6 +612,11 @@ class Netlist():
                 if bFin.entrada_2 == actual.nombre: self.file.write("2")
 
             if tipo_bFin == "REST":
+
+                if bFin.entrada_1 == actual.nombre: self.file.write("1")
+                if bFin.entrada_2 == actual.nombre: self.file.write("2")
+
+            if tipo_bFin == "PFT":
 
                 if bFin.entrada_1 == actual.nombre: self.file.write("1")
                 if bFin.entrada_2 == actual.nombre: self.file.write("2")
@@ -664,6 +674,7 @@ class Netlist():
         if tipo == "DER": actual = self.lista[18].cabeza
         if tipo == "SUM": actual = self.lista[19].cabeza
         if tipo == "REST": actual = self.lista[20].cabeza
+        if tipo == "PFT": actual = self.lista[21].cabeza
 
         while actual is not None:
             if actual.nombre == nombre:
