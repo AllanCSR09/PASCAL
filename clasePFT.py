@@ -86,8 +86,8 @@ class NodoPFT:
         self.variable_numerador2 = ["b2", "b1", "b0"]
         self.variable_denominador2 = ["a2", "a1", "a0"]
 
-        print("La lista es de numerador 1 es:", self.variable_numerador)
-        print("El orden de la función 1 es:", self.variable_orden)
+        #print("La lista es de numerador 1 es:", self.variable_numerador)
+        #print("El orden de la función 1 es:", self.variable_orden)
 
         # Simulacion -----------------------
         self.ordenEcuacion = 2
@@ -292,6 +292,7 @@ class NodoPFT:
                     else:
                         den = den + str(self.variable_denominador[i]) + ", "
 
+                print("Este es el valor del denominador 1 que se está agregando: " + den)
                 self.denominador.set(den)
 
             Label(self.frame2, text="Denominador:").grid(
@@ -337,7 +338,8 @@ class NodoPFT:
                     else:
                         den2 = den2 + str(self.variable_denominador2[i]) + ", "
 
-                self.denominador2.set(den)
+                print("Este es el valor del denominador 2 que se está agregando: " + den2)
+                self.denominador2.set(den2)
 
             Label(self.frame2, text="Denominador:").grid(
                 row=10, column=0, sticky=W, padx=(20, 0), pady=(0, 0)
@@ -416,18 +418,18 @@ class NodoPFT:
 
         if opcion == "Aceptar":
 
-            print("La lista de numerador 1 es:", self.numerador.get())
-            print("El orden de la función 1 es:", int(self.orden.get()))
+            #print("La lista de numerador 1 es:", self.numerador.get())
+            #print("El orden de la función 1 es:", int(self.orden.get()))
             error = 0
             orden = int(self.orden.get())
             orden2 = int(self.orden2.get())
 
             try:
+                
                 m = int(self.m.get())
                 n = int(self.n.get())
 
                 if n == 1 and m == 1:
-                    print("Hasta aqui se completo el codigo 0")
 
                     valor_num = eval(self.numerador.get())
 
@@ -435,12 +437,8 @@ class NodoPFT:
 
                     valor_den = eval(self.denominador.get())
 
-                    print("Hasta aqui se completo el codigo a")
-
                     if type(valor_num) is not list:
                         raise Exception
-
-                    print("Hasta aqui se completo el codigo b")
 
                     error = 2
 
@@ -455,33 +453,21 @@ class NodoPFT:
                         if type(i) is not int and type(i) is not float:
                             raise Exception
 
-                    print("Hasta aqui se completo el codigo c")
-
                     error = 3
-
-                    print("Hasta aqui se completo el codigo d")
 
                     if orden == 1:
 
                         if type(valor_den) is int or type(valor_den) is float:
                             valor_den = [valor_den]
 
-                    print("Hasta aqui se completo el codigo e")
-
                     if type(valor_den) is not list:
                         raise Exception
 
-                    print("Hasta aqui se completo el codigo f")
-
                     if len(valor_den) == 0 and orden == 1:
-                        valor_den = [0]
-
-                    print("Hasta aqui se completo el codigo g")
-
-                    if len(valor_den) == 0 and orden == 2:
                         valor_den = [0, 0]
 
-                    print("Hasta aqui se completo el codigo h")
+                    if len(valor_den) == 0 and orden == 2:
+                        valor_den = [0, 0, 0]
 
                     for i in valor_den:
 
@@ -490,89 +476,84 @@ class NodoPFT:
 
                     error = 4
 
-                    print("Hasta aqui se completo el codigo i")
-
+                    print("Sirve hasta 0")
+                    
                     if orden == 1:
                         numerador = [0, 0]
                     else:
                         numerador = [0, 0, 0]
 
-                    print("Hasta aqui se completo el codigo j")
-
-                    for i in range(0, len(valor_num)):
-                        numerador[-(i + 1)] = valor_num[-(i + 1)]
-
-                    print("Hasta aqui se completo el codigo k")
-
-                    valor_num = numerador
-
-                    print("Hasta aqui se completo el codigo l")
-
-                    error = 5
-                    if orden == 1:
-                        denominador = [0]
-                    else:
-                        denominador = [0, 0]
-
-                    print("Hasta aqui se completo el codigo m")
-
-                    for i in range(0, len(valor_den)):
-                        denominador[-(i + 1)] = valor_den[-(i + 1)]
-
-                    print("Hasta aqui se completo el codigo n")
-
-                    valor_den = denominador
-
-                    print("Hasta aqui se completo el codigo o")
-
                     if len(valor_num) > 3 and orden == 2:
                         raise Exception
-
-                    print("Hasta aqui se completo el codigo p")
+                    
+                    print("Sirve hasta 1")
 
                     if len(valor_num) > 2 and orden == 1:
                         raise Exception
 
-                    print("Hasta aqui se completo el codigo q")
+                    for i in range(0, len(valor_num)):
+                        numerador[-(i + 1)] = valor_num[-(i + 1)]
 
-                    if len(valor_den) > 2 and orden == 2:
+                    valor_num = numerador
+
+                    error = 5
+
+                    print("Sirve hasta 2")
+
+                    if orden == 1:
+                        denominador = [0, 0]
+                    else:
+                        denominador = [0, 0, 0]
+
+                    print("Sirve hasta 3")
+
+                    for i in range(0, len(valor_den)):
+                        print(i)
+                        print("Sirve hasta 4")
+                        print(denominador)
+                        print(valor_den)
+                        denominador[-(i + 1)] = valor_den[-(i + 1)]
+                        print("Sirve hasta 5")
+
+                    if len(valor_den) > 3 and orden == 2:
                         raise Exception
 
-                    print("Hasta aqui se completo el codigo r")
+                    print("Sirve hasta 6")
 
-                    if len(valor_den) > 1 and orden == 1:
+                    if len(valor_den) > 2 and orden == 1:
                         raise Exception
+                    
+                    print("Sirve hasta 7")
 
-                    print("Hasta aqui se completo el codigo s")
+                    valor_den = denominador
 
-                    print("Hasta aqui se completo el codigo 872")
+                    print("Sirve hasta 8")
 
                     self.variable_numerador = valor_num
 
-                    print("Hasta aqui se completo el codigo 873")
                     self.variable_denominador = valor_den
-
-                    print("Hasta aqui se completo el codigo 874")
 
                 if n != 1 or m != 1:
                     error = 0
 
-                    print("Hasta aqui se completo el codigo 02")
-
                     valor_num = eval(self.numerador.get())
 
+                    print("Sirve hasta 9")
+                
                     error = 1
 
                     valor_den = eval(self.denominador.get())
 
-                    print("Hasta aqui se completo el codigo a2")
+                    print(valor_den)
 
                     if type(valor_num) is not list:
                         raise Exception
 
-                    print("Hasta aqui se completo el codigo b2")
-
                     error = 2
+
+                    print("Sirve hasta 10")
+                    
+                    print(valor_den)
 
                     if len(valor_num) == 0 and orden == 1:
                         valor_num = [0, 0]
@@ -580,30 +561,38 @@ class NodoPFT:
                     if len(valor_num) == 0 and orden == 2:
                         valor_num = [0, 0, 0]
 
+                    print("Sirve hasta 11")
+
+                    print(valor_den)
+
                     for i in valor_num:
 
                         if type(i) is not int and type(i) is not float:
                             raise Exception
 
-                    print("Hasta aqui se completo el codigo c2")
-
                     error = 3
 
-                    print("Hasta aqui se completo el codigo d2")
+                    print(valor_den)
+
+                    print("Sirve hasta 14")
 
                     if orden == 1:
 
                         if type(valor_den) is int or type(valor_den) is float:
                             valor_den = [valor_den]
+                    
+                    print(valor_den)
 
                     if type(valor_den) is not list:
                         raise Exception
 
                     if len(valor_den) == 0 and orden == 1:
-                        valor_den = [0]
+                        valor_den = [0, 0]
 
                     if len(valor_den) == 0 and orden == 2:
-                        valor_den = [0, 0]
+                        valor_den = [0, 0, 0]
+
+                    print(valor_den)
 
                     for i in valor_den:
 
@@ -611,6 +600,8 @@ class NodoPFT:
                             raise Exception
 
                     error = 4
+
+                    print("Sirve hasta 15")
 
                     if orden == 1:
                         numerador = [0, 0]
@@ -620,90 +611,106 @@ class NodoPFT:
                     for i in range(0, len(valor_num)):
                         numerador[-(i + 1)] = valor_num[-(i + 1)]
 
+                    print(valor_den)
+
                     valor_num = numerador
 
                     error = 5
 
+                    print("Sirve hasta 16")
+
+                    print(valor_den)
+
                     if orden == 1:
-                        denominador = [0]
-                    else:
                         denominador = [0, 0]
+                    else:
+                        denominador = [0, 0, 0]
+
+                    if len(valor_den) > 3 and orden == 2:
+                        raise Exception
+
+                    if len(valor_den) > 2 and orden == 1:
+                        raise Exception
 
                     for i in range(0, len(valor_den)):
                         denominador[-(i + 1)] = valor_den[-(i + 1)]
 
+                    print("Sirve hasta 17")
+
+                    print(valor_den)
+
                     valor_den = denominador
 
-                    if len(valor_num) > 3 and orden == 2:
-                        raise Exception
-
-                    if len(valor_num) > 2 and orden == 1:
-                        raise Exception
-
-                    if len(valor_den) > 2 and orden == 2:
-                        raise Exception
-
-                    if len(valor_den) > 1 and orden == 1:
-                        raise Exception
+                    print(valor_den)
 
                     # ------------------------- FT 2 --------------------------#
 
                     error = 6
 
-                    print("Hasta aqui se completo el codigo 022")
-
                     valor_num2 = eval(self.numerador2.get())
+
+                    print("Sirve hasta 18")
+
+                    print(valor_den)
+
+                    print(self.numerador2.get())
 
                     error = 7
 
                     valor_den2 = eval(self.denominador2.get())
 
-                    print("Hasta aqui se completo el codigo a22")
+                    print(self.denominador2.get())
 
                     if type(valor_num2) is not list:
                         raise Exception
 
-                    print("Hasta aqui se completo el codigo b22")
-
                     error = 8
 
+                    print(valor_den)
+                    print("Sirve hasta 19")
+                    
                     if len(valor_num2) == 0 and orden2 == 1:
                         valor_num2 = [0, 0]
 
                     if len(valor_num2) == 0 and orden2 == 2:
                         valor_num2 = [0, 0, 0]
 
+                    print("Sirve hasta 199")
+
                     for i in valor_num2:
 
                         if type(i) is not int and type(i) is not float:
                             raise Exception
 
-                    print("Hasta aqui se completo el codigo c22")
-
                     error = 9
 
-                    print("Hasta aqui se completo el codigo d22")
+                    print("Sirve hasta 20")
 
                     if orden2 == 1:
 
                         if type(valor_den2) is int or type(valor_den2) is float:
                             valor_den2 = [valor_den2]
 
-                    if type(valor_den2) is not list:
+                    if type(valor_den) is not list:
                         raise Exception
 
                     if len(valor_den2) == 0 and orden2 == 1:
-                        valor_den2 = [0]
+                        valor_den2 = [0, 0]
 
                     if len(valor_den2) == 0 and orden2 == 2:
-                        valor_den2 = [0, 0]
+                        valor_den2 = [0, 0, 0]
 
                     for i in valor_den2:
 
                         if type(i) is not int and type(i) is not float:
                             raise Exception
 
+                    print(valor_den2)
+                    print(valor_den)
+
                     error = 10
+
+                    print("Sirve hasta 21")
 
                     if orden2 == 1:
                         numerador2 = [0, 0]
@@ -716,47 +723,43 @@ class NodoPFT:
                     valor_num2 = numerador2
 
                     error = 11
+
+                    print("Sirve hasta 22")
+
                     if orden2 == 1:
-                        denominador2 = [0]
-                    else:
                         denominador2 = [0, 0]
+                    else:
+                        denominador2 = [0, 0, 0]
+
+                    print(valor_den2[0])
+
+                    if len(valor_den2) > 3 and orden2 == 2:
+                        raise Exception
+
+                    if len(valor_den2) > 2 and orden2 == 1:
+                        raise Exception
+
+                    print("Sirve hasta 23")
 
                     for i in range(0, len(valor_den2)):
                         denominador2[-(i + 1)] = valor_den2[-(i + 1)]
 
                     valor_den2 = denominador2
+                    
+                    print("Sirve hasta 24")
 
-                    if len(valor_num2) > 3 and orden2 == 2:
-                        raise Exception
-
-                    if len(valor_num2) > 2 and orden2 == 1:
-                        raise Exception
-
-                    if len(valor_den2) > 2 and orden2 == 2:
-                        raise Exception
-
-                    if len(valor_den2) > 1 and orden2 == 1:
-                        raise Exception
-                    print("Hasta aqui se completo el codigo 1872")
+                    print(valor_den2[0])
+                    print(valor_den[0])
 
                     self.variable_numerador = valor_num
 
-                    print("Hasta aqui se completo el codigo 1873")
                     self.variable_denominador = valor_den
 
-                    print("Hasta aqui se completo el codigo 1874")
                     self.variable_numerador2 = valor_num2
 
-                    print("Hasta aqui se completo el codigo 1875")
                     self.variable_denominador2 = valor_den2
 
-                    print("Hasta aqui se completo el codigo 1876")
-
-                print("Hasta aqui se completo el codigo 62")
-
                 posicion = 45
-
-                print("Hasta aqui se completo el codigo 82")
 
                 if n == 1 and m == 1:
                     self.tipoPFT = "PFT_1x1"
@@ -792,7 +795,6 @@ class NodoPFT:
                 )
 
                 # En caso de cambio en numero de entradas/salidas, eliminar conexiones.
-                print("Hasta aqui se completo el codigo 672")
                 if self.variable_n != n or self.variable_m != m:
 
                     self.variable_n = n
@@ -807,9 +809,7 @@ class NodoPFT:
                     if self.salida_2 is not None:
                         self.tupla_listas[2].eliminarConexion(self.salida_2)
 
-                # -----------------------------
-
-                print("Hasta aqui se completo el codigo 900")
+                # ------------------------------------------------------------------#
 
                 self.variable_orden = int(self.orden.get())
                 self.variable_orden2 = int(self.orden2.get())
@@ -836,7 +836,8 @@ class NodoPFT:
 
                 if error == 2 and orden == 1:
                     messagebox.showerror(
-                        "Error", "Numerador FT1 inválido\nEl formato debe ser: [b1, b0]"
+                        "Error", 
+                        "Numerador FT1 inválido\nEl formato debe ser: [b1, b0]"
                     )
                 if error == 2 and orden == 2:
                     messagebox.showerror(
@@ -845,12 +846,12 @@ class NodoPFT:
                     )
                 if error == 3 and orden == 1:
                     messagebox.showerror(
-                        "Error", "Denominador FT1 inválido\nEl formato debe ser: [a0]"
+                        "Error", "Denominador FT1 inválido\nEl formato debe ser: [a1, a0]"
                     )
                 if error == 3 and orden == 2:
                     messagebox.showerror(
                         "Error",
-                        "Denominador FT1 inválido\nEl formato debe ser: [a1, a0]",
+                        "Denominador FT1 inválido\nEl formato debe ser: [a2, a1, a0]",
                     )
                 if error == 4 and orden == 1:
                     messagebox.showerror(
@@ -858,15 +859,15 @@ class NodoPFT:
                     )
                 if error == 4 and orden == 2:
                     messagebox.showerror(
-                        "Error", "El grado del numerador FT1 debe ser igual a 2"
-                    )
+                        "Error", "El grado del numerador FT1 debe ser mayor a 1"
+                    )                 
                 if error == 5 and orden == 1:
                     messagebox.showerror(
-                        "Error", "El grado del denominador FT1 debe ser igual a 1"
+                        "Error", "El grado del denominador FT1 debe ser igual o menor que 1"
                     )
                 if error == 5 and orden == 2:
                     messagebox.showerror(
-                        "Error", "El grado del denominador FT1 debe ser igual a 2"
+                        "Error", "El grado del denominador FT1 debe ser mayor a 1"
                     )
 
                 # ------------------------------ ERRORES FT2 --------------------------#
@@ -894,28 +895,28 @@ class NodoPFT:
                     )
                 if error == 9 and orden2 == 1:
                     messagebox.showerror(
-                        "Error", "Denominador FT2 inválido\nEl formato debe ser: [a0]"
+                        "Error", "Denominador FT2 inválido\nEl formato debe ser: [a1, a0]"
                     )
                 if error == 9 and orden2 == 2:
                     messagebox.showerror(
                         "Error",
-                        "Denominador FT2 inválido\nEl formato debe ser: [a1, a0]",
+                        "Denominador FT2 inválido\nEl formato debe ser: [a2, a1, a0]",
                     )
                 if error == 10 and orden2 == 1:
                     messagebox.showerror(
-                        "Error", "El grado del numerador FT2 debe ser igual a 1"
+                        "Error", "El grado del numerador FT2 debe ser igual o menor a 1"
                     )
                 if error == 10 and orden2 == 2:
                     messagebox.showerror(
-                        "Error", "El grado del numerador FT2 debe ser igual a 2"
+                        "Error", "El grado del numerador FT2 debe ser mayor a 1"
                     )
                 if error == 11 and orden2 == 1:
                     messagebox.showerror(
-                        "Error", "El grado del denominador FT2 debe ser igual a 1"
+                        "Error", "El grado del denominador FT2 debe ser igual o menor a 1"
                     )
                 if error == 11 and orden2 == 2:
                     messagebox.showerror(
-                        "Error", "El grado del denominador FT2 debe ser igual a 2"
+                        "Error", "El grado del denominador FT2 debe ser mayor a 2"
                     )
 
                 self.windowPFT.lift()
