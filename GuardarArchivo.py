@@ -280,6 +280,57 @@ class NuevoArchivo():
                     elemento = ElementTree.SubElement(child1, 'Variable_Denominador')
                     elemento.text = str(actual.variable_denominador)
 
+                if actual.tipo == "PFT":
+                    child1 = ElementTree.SubElement(root, actual.tipo)
+
+                    elemento = ElementTree.SubElement(child1, 'Nombre')
+                    elemento.text = actual.nombre
+
+                    elemento = ElementTree.SubElement(child1, 'Tipo_PFT')
+                    elemento.text = actual.tipoPFT
+
+                    elemento = ElementTree.SubElement(child1, 'Posicion_X')
+                    elemento.text = str(actual.posicionx)
+
+                    elemento = ElementTree.SubElement(child1, 'Posicion_Y')
+                    elemento.text = str(actual.posiciony)
+
+                    elemento = ElementTree.SubElement(child1, 'Entrada_1')
+                    elemento.text = actual.entrada_1
+
+                    elemento = ElementTree.SubElement(child1, 'Entrada_2')
+                    elemento.text = actual.entrada_2
+
+                    elemento = ElementTree.SubElement(child1, 'Salida_1')
+                    elemento.text = actual.salida_1
+
+                    elemento = ElementTree.SubElement(child1, 'Salida_2')
+                    elemento.text = actual.salida_2
+
+                    elemento = ElementTree.SubElement(child1, 'Variable_N')
+                    elemento.text = str(actual.variable_n)
+
+                    elemento = ElementTree.SubElement(child1, 'Variable_M')
+                    elemento.text = str(actual.variable_m)
+
+                    elemento = ElementTree.SubElement(child1, 'Variable_Orden')
+                    elemento.text = str(actual.variable_orden)
+
+                    elemento = ElementTree.SubElement(child1, 'Variable_Orden_2')
+                    elemento.text = str(actual.variable_orden2)
+
+                    elemento = ElementTree.SubElement(child1, 'Variable_Numerador')
+                    elemento.text = str(actual.variable_numerador)
+
+                    elemento = ElementTree.SubElement(child1, 'Variable_Denominador')
+                    elemento.text = str(actual.variable_denominador)   
+
+                    elemento = ElementTree.SubElement(child1, 'Variable_Numerador_2')
+                    elemento.text = str(actual.variable_numerador2)
+
+                    elemento = ElementTree.SubElement(child1, 'Variable_Denominador_2')
+                    elemento.text = str(actual.variable_denominador2)    
+
                 if actual.tipo == "SAT":
                     child1 = ElementTree.SubElement(root, actual.tipo)
 
@@ -303,6 +354,8 @@ class NuevoArchivo():
 
                     elemento = ElementTree.SubElement(child1, 'Variable_Limite_Inferior')
                     elemento.text = str(actual.variable_limite_inferior)
+
+                
 
                 if actual.tipo == "QDEC":
                     child1 = ElementTree.SubElement(root, actual.tipo)

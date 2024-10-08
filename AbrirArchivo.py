@@ -406,6 +406,77 @@ class NuevoArchivo():
                 for child2 in child.iter('Variable_Denominador'):
                     temp.variable_denominador = eval(child2.text)
 
+            # ----------------------- PFT -----------------------
+            for child in root.iter('PFT'):
+
+                for child2 in child.iter('Nombre'):
+                    nombre = child2.text
+
+                for child2 in child.iter('Posicion_X'):
+                    x = int(child2.text)
+
+                for child2 in child.iter('Posicion_Y'):
+                    y = int(child2.text)
+
+                temp = lista[21].abrirArchivo(lista, nombre, x, y)
+
+                for child2 in child.iter('Tipo_PFT'):
+                    tipoPFT = child2.text
+                    temp.tipoPFT = tipoPFT
+
+                    if tipoPFT == "PFT_1x1":
+                        temp.imagen = PhotoImage(file="PFT_1x1.png")
+                        temp.window.itemconfig(temp.nombre, image=temp.imagen)
+
+                    if tipoPFT == "PFT_1x2":
+                        temp.imagen = PhotoImage(file="PFT_1x2.png")
+                        temp.window.itemconfig(temp.nombre, image=temp.imagen)
+
+                    if tipoPFT == "PFT_2x1":
+                        temp.imagen = PhotoImage(file="PFT_2x1.png")
+                        temp.window.itemconfig(temp.nombre, image=temp.imagen)
+
+                    if tipoPFT == "PFT_2x2":
+                        temp.imagen = PhotoImage(file="PFT_2x2.png")
+                        temp.window.itemconfig(temp.nombre, image=temp.imagen)
+                        
+
+                for child2 in child.iter('Entrada_1'):
+                    temp.entrada_1 = child2.text
+
+                for child2 in child.iter('Entrada_2'):
+                    temp.entrada_2 = child2.text
+
+                for child2 in child.iter('Salida_1'):
+                    temp.salida_1 = child2.text
+                
+                for child2 in child.iter('Salida_2'):
+                    temp.salida_2 = child2.text
+
+                for child2 in child.iter('Variable_N'):
+                    temp.variable_n = int(child2.text)
+
+                for child2 in child.iter('Variable_M'):
+                    temp.variable_m = int(child2.text)    
+
+                for child2 in child.iter('Variable_Orden'):
+                    temp.variable_orden = int(child2.text)
+
+                for child2 in child.iter('Variable_Orden_2'):
+                    temp.variable_orden2 = int(child2.text)
+
+                for child2 in child.iter('Variable_Numerador'):
+                    temp.variable_numerador = eval(child2.text)
+
+                for child2 in child.iter('Variable_Denominador'):
+                    temp.variable_denominador = eval(child2.text)
+                
+                for child2 in child.iter('Variable_Numerador_2'):
+                    temp.variable_numerador2 = eval(child2.text)
+
+                for child2 in child.iter('Variable_Denominador_2'):
+                    temp.variable_denominador2 = eval(child2.text)
+
             # ----------------------- SAT -----------------------
             for child in root.iter('SAT'):
 

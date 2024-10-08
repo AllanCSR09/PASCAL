@@ -512,7 +512,8 @@ class NodoPFT:
                         print("Sirve hasta 4")
                         print(denominador)
                         print(valor_den)
-                        denominador[-(i + 1)] = valor_den[-(i + 1)]
+                        #denominador[-(i + 1)] = valor_den[-(i + 1)]
+                        denominador[i] = valor_den[i]
                         print("Sirve hasta 5")
 
                     if len(valor_den) > 3 and orden == 2:
@@ -525,8 +526,9 @@ class NodoPFT:
                     
                     print("Sirve hasta 7")
 
-                    valor_den = denominador
 
+                    valor_den = denominador
+                    
                     print("Sirve hasta 8")
 
                     self.variable_numerador = valor_num
@@ -633,14 +635,13 @@ class NodoPFT:
                         raise Exception
 
                     for i in range(0, len(valor_den)):
-                        denominador[-(i + 1)] = valor_den[-(i + 1)]
+                        denominador[i] = valor_den[i]
 
                     print("Sirve hasta 17")
 
                     print(valor_den)
 
                     valor_den = denominador
-
                     print(valor_den)
 
                     # ------------------------- FT 2 --------------------------#
@@ -742,10 +743,9 @@ class NodoPFT:
                     print("Sirve hasta 23")
 
                     for i in range(0, len(valor_den2)):
-                        denominador2[-(i + 1)] = valor_den2[-(i + 1)]
+                        denominador2[i] = valor_den2[i]
 
                     valor_den2 = denominador2
-                    
                     print("Sirve hasta 24")
 
                     print(valor_den2[0])
@@ -855,7 +855,7 @@ class NodoPFT:
                     )
                 if error == 4 and orden == 1:
                     messagebox.showerror(
-                        "Error", "El grado del numerador FT1 debe ser igual a 1"
+                        "Error", "El grado del numerador FT1 debe ser menor a 2"
                     )
                 if error == 4 and orden == 2:
                     messagebox.showerror(
@@ -863,7 +863,7 @@ class NodoPFT:
                     )                 
                 if error == 5 and orden == 1:
                     messagebox.showerror(
-                        "Error", "El grado del denominador FT1 debe ser igual o menor que 1"
+                        "Error", "El grado del denominador FT1 debe ser menor a 2"
                     )
                 if error == 5 and orden == 2:
                     messagebox.showerror(
@@ -904,7 +904,7 @@ class NodoPFT:
                     )
                 if error == 10 and orden2 == 1:
                     messagebox.showerror(
-                        "Error", "El grado del numerador FT2 debe ser igual o menor a 1"
+                        "Error", "El grado del numerador FT2 debe ser menor a 2"
                     )
                 if error == 10 and orden2 == 2:
                     messagebox.showerror(
@@ -912,11 +912,11 @@ class NodoPFT:
                     )
                 if error == 11 and orden2 == 1:
                     messagebox.showerror(
-                        "Error", "El grado del denominador FT2 debe ser igual o menor a 1"
+                        "Error", "El grado del denominador FT2 debe ser menor a 2"
                     )
                 if error == 11 and orden2 == 2:
                     messagebox.showerror(
-                        "Error", "El grado del denominador FT2 debe ser mayor a 2"
+                        "Error", "El grado del denominador FT2 debe ser mayor a "
                     )
 
                 self.windowPFT.lift()
